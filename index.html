@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ระบบรวมเว็บแอปพลิเคชัน - โรงเรียนบ้านหัวหนองแวง(สามัคคีราษฎร์บำรุง)</title>
+    <!-- นำเข้า Tailwind CSS จาก CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- นำเข้า Google Fonts (สารบรรณ) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- นำเข้า Font Awesome สำหรับไอคอน -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Sarabun', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col justify-between">
+
+    <!-- HEADER SECTION -->
+    <header class="bg-indigo-900 text-white shadow-md">
+        <div class="container mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-4 text-center md:text-left">
+                <!-- สามารถใส่รูป Logo โรงเรียนตรงนี้ได้ครับ -->
+                <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-indigo-900 text-2xl font-bold shadow">
+                    <i class="fa-solid : fa-school"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl md:text-2xl font-bold tracking-wide">โรงเรียนบ้านหัวหนองแวง (สามัคคีราษฎร์บำรุง)</h1>
+                    <p class="text-xs text-indigo-200">ระบบศูนย์รวมเว็บแอปพลิเคชันภายในสถานศึกษา (Web App Portal)</p>
+                </div>
+            </div>
+            <!-- ระบบต้อนรับผู้ใช้งาน -->
+            <div class="bg-indigo-800 px-4 py-2 rounded-full text-sm flex items-center gap-2 border border-indigo-700">
+                <i class="fa-solid fa-user-circle text-lg text-emerald-400"></i>
+                <span>สวัสดี, คุณครูผู้ใช้งาน</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="container mx-auto px-6 py-10 flex-grow">
+        <div class="text-center mb-10">
+            <h2 class="text-2xl font-semibold text-gray-800">กรุณาเลือกระบบงานที่ต้องการใช้งาน</h2>
+            <p class="text-gray-500 text-sm mt-1">คลิกที่ระบบเพื่อลิงก์ไปยังหน้าแอปพลิเคชันนั้นๆ</p>
+        </div>
+
+        <!-- GRID SYSTEM FOR CARDS -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            
+            <!-- CARD 1: ระบบงานสารบัญเอกสาร -->
+            <a href="https://script.google.com/macros/s/AKfycbwKuEB-2bXKcPfuwtDIvLziWuSHXs9wodq9itPkk3Ogkq4V2XLaLLYnFihJQdBAt60Lxg/exec" class="group bg-white rounded-2xl shadow-sm hover:shadow-xl border border-gray-100 p-6 text-center transition-all duration-300 transform hover:-translate-y-2 flex flex-col justify-between">
+                <div>
+                    <div class="w-16 h-16 mx-auto mb-4 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center text-3xl group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
+                        <i class="fa-solid fa-folder-open"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2">ระบบงานสารบัญเอกสาร</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">รับ-ส่งหนังสือราชการ, ออกเลขที่หนังสือภายนอก-ภายใน และจัดเก็บเอกสารสำคัญของโรงเรียน</p>
+                </div>
+                <div class="mt-6 text-blue-600 font-semibold text-sm inline-flex items-center justify-center gap-1 group-hover:gap-3 transition-all">
+                    เข้าสู่ระบบ <i class="fa-solid fa-arrow-right text-xs"></i>
+                </div>
+            </a>
+
+            <!-- CARD 2: ระบบออมทรัพย์นักเรียน -->
+            <a href="https://script.google.com/macros/s/AKfycbyrrhr7yxBAw_RvPGt7zse-jM6CJu7QM9YzRXSkr0O4T4xzchOMIJBYtocVNqZlVB2L/exec" class="group bg-white rounded-2xl shadow-sm hover:shadow-xl border border-gray-100 p-6 text-center transition-all duration-300 transform hover:-translate-y-2 flex flex-col justify-between">
+                <div>
+                    <div class="w-16 h-16 mx-auto mb-4 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center text-3xl group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300">
+                        <i class="fa-solid fa-piggy-bank"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2">ระบบออมทรัพย์นักเรียน</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">บันทึกยอดเงินออมรายวันของนักเรียน ตรวจสอบยอดเงินคงเหลือ และรายงานสถิติการออม</p>
+                </div>
+                <div class="mt-6 text-emerald-600 font-semibold text-sm inline-flex items-center justify-center gap-1 group-hover:gap-3 transition-all">
+                    เข้าสู่ระบบ <i class="fa-solid fa-arrow-right text-xs"></i>
+                </div>
+            </a>
+
+            <!-- CARD 3: ระบบเช็คชื่อนักเรียนรายวิชา -->
+            <a href="#link-to-attendance" class="group bg-white rounded-2xl shadow-sm hover:shadow-xl border border-gray-100 p-6 text-center transition-all duration-300 transform hover:-translate-y-2 flex flex-col justify-between">
+                <div>
+                    <div class="w-16 h-16 mx-auto mb-4 bg-amber-50 text-amber-600 rounded-2xl flex items-center justify-center text-3xl group-hover:bg-amber-600 group-hover:text-white transition-all duration-300">
+                        <i class="fa-solid fa-user-check"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2">ระบบเช็คชื่อนักเรียนรายวิชา</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">บันทึกการเข้าเรียน มาสาย หรือลา ของนักเรียนในแต่ละรายวิชา พร้อมสรุปเปอร์เซ็นต์เวลาเรียน</p>
+                </div>
+                <div class="mt-6 text-amber-600 font-semibold text-sm inline-flex items-center justify-center gap-1 group-hover:gap-3 transition-all">
+                    เข้าสู่ระบบ <i class="fa-solid fa-arrow-right text-xs"></i>
+                </div>
+            </a>
+
+        </div>
+    </main>
+
+    <!-- FOOTER SECTION -->
+    <footer class="bg-gray-800 text-gray-400 text-center py-4 text-xs border-t border-gray-700">
+        <p>© 2026 โรงเรียนบ้านหัวหนองแวง (สามัคคีราษฎร์บำรุง) | งานบริหารเทคโนโลยีสารสนเทศ</p>
+    </footer>
+
+</body>
+</html>
