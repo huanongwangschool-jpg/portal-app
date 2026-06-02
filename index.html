@@ -6,9 +6,6 @@
 
   <title>ศูนย์รวมเว็บแอปโรงเรียนบ้านหัวหนองแวง</title>
 
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
   <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,15 +14,319 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="style.css">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: 'Sarabun', sans-serif;
+      color: #111827;
+      background:
+        radial-gradient(circle at top left, rgba(230, 247, 238, 0.9), transparent 38%),
+        radial-gradient(circle at top right, rgba(232, 243, 255, 0.95), transparent 40%),
+        linear-gradient(180deg, #f8fbf7 0%, #eef8f3 100%);
+    }
+
+    .page-shell {
+      max-width: 1180px;
+      min-height: 720px;
+      margin: 32px auto;
+      background: linear-gradient(180deg, #ffffff 0%, #eef8f3 100%);
+      box-shadow: 0 25px 70px rgba(15, 23, 42, 0.16);
+      overflow: hidden;
+    }
+
+    /* Header */
+    .topbar {
+      height: 88px;
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid #e5e7eb;
+      display: flex;
+      align-items: center;
+    }
+
+    .topbar-inner {
+      width: 100%;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-logo {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .brand-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .brand-text h1 {
+      margin: 0;
+      font-size: 21px;
+      line-height: 1.1;
+      font-weight: 800;
+      color: #111827;
+    }
+
+    .brand-text p {
+      margin: 4px 0 0;
+      font-size: 15px;
+      line-height: 1.2;
+      font-weight: 600;
+      color: #111827;
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .quick-btn {
+      height: 40px;
+      padding: 0 16px;
+      border-radius: 12px;
+      background: #f1f5f9;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .icon-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: none;
+      background: transparent;
+      color: #475569;
+      font-size: 18px;
+    }
+
+    .user-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #334155;
+    }
+
+    /* Main */
+    .main-content {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 34px 24px 24px;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .hero h2 {
+      margin: 0;
+      font-size: 34px;
+      line-height: 1.2;
+      font-weight: 800;
+      color: #111827;
+    }
+
+    .hero p {
+      margin: 6px 0 0;
+      font-size: 16px;
+      color: #111827;
+    }
+
+    /* Cards */
+    .app-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .app-card {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 26px 24px 22px;
+      text-align: center;
+      box-shadow: 0 18px 45px rgba(36, 65, 95, 0.14);
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      transition: all 0.25s ease;
+      min-height: 330px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .app-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 55px rgba(36, 65, 95, 0.18);
+    }
+
+    .app-image {
+      width: 175px;
+      height: 116px;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .app-image img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .app-card h3 {
+      margin: 0;
+      min-height: 50px;
+      font-size: 21px;
+      line-height: 1.25;
+      font-weight: 800;
+      color: #111827;
+    }
+
+    .app-card p {
+      margin: 10px 0 18px;
+      min-height: 44px;
+      font-size: 14px;
+      line-height: 1.55;
+      color: #374151;
+    }
+
+    .card-btn {
+      margin-top: auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 112px;
+      height: 42px;
+      padding: 0 18px;
+      border-radius: 8px;
+      background: #244866;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+
+    .card-btn:hover {
+      background: #18344d;
+      transform: translateY(-1px);
+    }
+
+    /* Footer */
+    .footer {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 18px 24px 24px;
+      text-align: center;
+      color: #111827;
+      font-size: 14px;
+    }
+
+    .footer p {
+      margin: 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .page-shell {
+        margin: 0;
+        min-height: 100vh;
+      }
+
+      .topbar {
+        height: auto;
+      }
+
+      .topbar-inner {
+        padding: 18px 20px;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .top-actions {
+        display: none;
+      }
+
+      .main-content {
+        padding: 32px 20px;
+      }
+
+      .hero h2 {
+        font-size: 28px;
+      }
+
+      .app-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .app-card {
+        max-width: 420px;
+        width: 100%;
+        margin: 0 auto;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .brand {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .brand-text h1 {
+        font-size: 19px;
+      }
+
+      .hero h2 {
+        font-size: 24px;
+      }
+
+      .app-image {
+        width: 155px;
+        height: 105px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
   <div class="page-shell">
 
-    <!-- TOP NAVBAR -->
+    <!-- Header -->
     <header class="topbar">
       <div class="topbar-inner">
 
@@ -46,7 +347,7 @@
             <span>Quick access</span>
           </div>
 
-          <button class="icon-btn" aria-label="notification">
+          <button class="icon-btn" aria-label="แจ้งเตือน">
             <i class="fa-regular fa-bell"></i>
           </button>
 
@@ -58,7 +359,7 @@
       </div>
     </header>
 
-    <!-- HERO -->
+    <!-- Main -->
     <main class="main-content">
 
       <section class="hero">
@@ -66,10 +367,9 @@
         <p>School Web Application Portal</p>
       </section>
 
-      <!-- APP CARDS -->
       <section class="app-grid">
 
-        <!-- CARD 1 -->
+        <!-- ระบบงานสารบรรณ -->
         <article class="app-card">
           <div class="app-image">
             <img src="images/icon-saraban.png" alt="ระบบงานสารบรรณเอกสาร">
@@ -89,7 +389,7 @@
           </a>
         </article>
 
-        <!-- CARD 2 -->
+        <!-- ระบบออมทรัพย์นักเรียน -->
         <article class="app-card">
           <div class="app-image">
             <img src="images/icon-saving.png" alt="ระบบออมทรัพย์นักเรียน">
@@ -109,7 +409,7 @@
           </a>
         </article>
 
-        <!-- CARD 3 -->
+        <!-- ระบบเช็คชื่อนักเรียน -->
         <article class="app-card">
           <div class="app-image">
             <img src="images/icon-attendance.png" alt="ระบบเช็คชื่อนักเรียนรายวิชา">
@@ -133,7 +433,7 @@
 
     </main>
 
-    <!-- FOOTER -->
+    <!-- Footer -->
     <footer class="footer">
       <p>ลิขสิทธิ์ © 2026 โรงเรียนบ้านหัวหนองแวง (สามัคคีราษฎร์บำรุง)</p>
     </footer>
