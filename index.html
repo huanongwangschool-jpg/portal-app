@@ -27,11 +27,10 @@
       --slate-700: #334155;
       --slate-600: #475569;
       --slate-500: #64748b;
-      --slate-200: #e2e8f0;
       --white: #ffffff;
 
-      --shadow-soft: 0 18px 50px rgba(15, 23, 42, 0.08);
-      --shadow-hover: 0 24px 60px rgba(15, 23, 42, 0.14);
+      --shadow-soft: 0 18px 50px rgba(15, 23, 42, 0.10);
+      --shadow-hover: 0 24px 60px rgba(15, 23, 42, 0.16);
     }
 
     * {
@@ -51,11 +50,6 @@
         linear-gradient(180deg, #f8fafc 0%, #ecfdf5 100%);
     }
 
-    body {
-      display: flex;
-      flex-direction: column;
-    }
-
     .page {
       width: min(100%, 1400px);
       margin: 0 auto;
@@ -69,7 +63,7 @@
     /* HEADER */
     .topbar {
       background:
-        linear-gradient(135deg, var(--green-900) 0%, var(--green-800) 38%, var(--green-700) 72%, var(--yellow-600) 100%);
+        linear-gradient(135deg, var(--green-900) 0%, var(--green-800) 40%, var(--green-700) 72%, var(--yellow-600) 100%);
       color: var(--white);
       border-bottom: 1px solid rgba(255,255,255,0.12);
       box-shadow: 0 10px 30px rgba(21, 128, 61, 0.18);
@@ -111,10 +105,6 @@
       height: 100%;
       object-fit: contain;
       display: block;
-    }
-
-    .brand-text {
-      min-width: 0;
     }
 
     .brand-title {
@@ -192,12 +182,12 @@
       flex: 1;
       width: min(100%, 1160px);
       margin: 0 auto;
-      padding: clamp(34px, 5vw, 60px) clamp(18px, 4vw, 32px) clamp(36px, 4vw, 48px);
+      padding: clamp(34px, 5vw, 56px) clamp(18px, 4vw, 32px) clamp(30px, 4vw, 42px);
     }
 
     .hero {
       text-align: center;
-      margin-bottom: clamp(26px, 4vw, 42px);
+      margin-bottom: clamp(22px, 3vw, 32px);
     }
 
     .hero-badge {
@@ -241,10 +231,10 @@
       background: rgba(255,255,255,0.98);
       border: 1px solid rgba(187, 247, 208, 0.95);
       border-radius: 28px;
-      padding: clamp(24px, 3vw, 32px);
+      padding: clamp(22px, 2.6vw, 28px);
       text-align: center;
       box-shadow: var(--shadow-soft);
-      min-height: 420px;
+      min-height: 380px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -275,9 +265,9 @@
     }
 
     .app-image {
-      width: min(100%, 260px);
-      height: clamp(140px, 18vw, 180px);
-      margin: 0 auto 18px;
+      width: min(100%, 285px);
+      height: clamp(155px, 19vw, 200px);
+      margin: 0 auto 12px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -294,7 +284,7 @@
 
     .app-card h3 {
       margin: 0;
-      min-height: 58px;
+      min-height: 54px;
       font-size: clamp(20px, 2vw, 25px);
       line-height: 1.28;
       font-weight: 700;
@@ -307,10 +297,10 @@
     }
 
     .app-card p {
-      margin: 12px 0 22px;
-      min-height: 60px;
+      margin: 10px 0 18px;
+      min-height: 48px;
       font-size: clamp(14px, 1.3vw, 15px);
-      line-height: 1.7;
+      line-height: 1.65;
       color: var(--slate-600);
       position: relative;
       z-index: 1;
@@ -370,7 +360,7 @@
     .footer {
       width: min(100%, 1160px);
       margin: 0 auto;
-      padding: 22px clamp(18px, 4vw, 32px) 28px;
+      padding: 18px clamp(18px, 4vw, 32px) 22px;
       text-align: center;
       color: rgba(255,255,255,0.95);
       font-size: clamp(13px, 1.2vw, 15px);
@@ -404,7 +394,7 @@
       }
 
       .app-card {
-        min-height: 390px;
+        min-height: 360px;
       }
     }
 
@@ -427,8 +417,8 @@
       }
 
       .app-image {
-        width: 220px;
-        height: 150px;
+        width: 230px;
+        height: 155px;
       }
 
       .brand-logo {
@@ -545,7 +535,7 @@
             เช็คชื่อรายคาบ ติดตาม และสรุปสถิติการเข้าเรียนของนักเรียน
           </p>
 
-          <a href="#link-to-attendance"
+          <a href="https://school-subject-attendance-app.vercel.app/login"
              target="_blank"
              rel="noopener noreferrer"
              class="app-button button-yellow">
