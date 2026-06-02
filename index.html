@@ -20,12 +20,10 @@
       --green-800: #166534;
       --green-700: #15803d;
       --green-100: #dcfce7;
-      --green-50: #f0fdf4;
       --yellow-600: #ca8a04;
       --blue-900: #16324f;
       --blue-800: #1f4968;
       --slate-900: #0f172a;
-      --slate-700: #334155;
       --slate-600: #475569;
       --slate-500: #64748b;
       --white: #ffffff;
@@ -264,15 +262,17 @@
       opacity: 1;
     }
 
+    /* ICON IMAGE - ขยายไอคอนให้เต็มขึ้น */
     .app-image {
-      width: min(100%, 285px);
-      height: clamp(155px, 19vw, 200px);
-      margin: 0 auto 12px;
+      width: min(100%, 300px);
+      height: clamp(180px, 22vw, 230px);
+      margin: 0 auto 4px;
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
       z-index: 1;
+      overflow: hidden;
     }
 
     .app-image img {
@@ -280,6 +280,8 @@
       height: 100%;
       object-fit: contain;
       display: block;
+      transform: scale(1.6);
+      transform-origin: center;
     }
 
     .app-card h3 {
@@ -396,6 +398,10 @@
       .app-card {
         min-height: 360px;
       }
+
+      .app-image {
+        height: 210px;
+      }
     }
 
     /* MOBILE */
@@ -417,8 +423,12 @@
       }
 
       .app-image {
-        width: 230px;
-        height: 155px;
+        width: 260px;
+        height: 180px;
+      }
+
+      .app-image img {
+        transform: scale(1.45);
       }
 
       .brand-logo {
