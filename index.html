@@ -19,27 +19,24 @@
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css">
-
-  <style>
-    body {
-      font-family: 'Sarabun', sans-serif;
-    }
-  </style>
 </head>
 
-<body class="min-h-screen bg-gradient-to-b from-green-50 via-white to-slate-50 flex flex-col">
+<body class="min-h-screen flex flex-col">
 
   <!-- HEADER -->
-  <header class="portal-header text-white shadow-lg">
+  <header class="portal-header">
     <div class="max-w-6xl mx-auto px-5 py-6 flex flex-col md:flex-row justify-between items-center gap-5">
 
+      <!-- SCHOOL LOGO + TITLE -->
       <div class="flex flex-col md:flex-row items-center gap-4 text-center md:text-left">
-        <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center text-green-800 text-3xl shadow-md">
-          <i class="fa-solid fa-school"></i>
+        <div class="school-logo-box">
+          <img src="images/logo-school.png"
+               alt="โลโก้โรงเรียนบ้านหัวหนองแวง"
+               class="school-logo">
         </div>
 
         <div>
-          <h1 class="text-xl md:text-3xl font-bold leading-snug">
+          <h1 class="text-xl md:text-3xl font-bold leading-snug text-white">
             โรงเรียนบ้านหัวหนองแวง
           </h1>
           <p class="text-sm md:text-base text-green-100">
@@ -51,7 +48,8 @@
         </div>
       </div>
 
-      <div class="bg-white/15 backdrop-blur px-5 py-2.5 rounded-full text-sm flex items-center gap-2 border border-white/20">
+      <!-- BADGE -->
+      <div class="portal-badge">
         <span class="w-2.5 h-2.5 bg-yellow-300 rounded-full animate-pulse"></span>
         <span>School Web App Portal</span>
       </div>
@@ -75,22 +73,24 @@
         </h2>
 
         <p class="text-slate-500 text-sm md:text-base mt-3">
-          คลิกปุ่มเข้าสู่ระบบ เพื่อเปิดเว็บแอปพลิเคชันของแต่ละงาน
+          คลิกปุ่มเปิดระบบ เพื่อเข้าสู่เว็บแอปพลิเคชันของแต่ละงาน
         </p>
       </div>
 
       <!-- CARDS -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-7">
 
-        <!-- CARD 1 -->
+        <!-- CARD 1: ระบบงานสารบรรณ -->
         <div class="portal-card">
           <div>
-            <div class="portal-icon bg-blue-50 text-blue-600">
-              <i class="fa-solid fa-folder-open"></i>
+            <div class="portal-image-icon">
+              <img src="images/icon-saraban.png"
+                   alt="ระบบงานสารบรรณ"
+                   class="portal-card-img">
             </div>
 
             <h3 class="portal-title">
-              ระบบงานสารบัญเอกสาร
+              ระบบงานสารบรรณเอกสาร
             </h3>
 
             <p class="portal-description">
@@ -101,17 +101,19 @@
           <a href="https://script.google.com/macros/s/AKfycbwKuEB-2bXKcPfuwtDIvLziWuSHXs9wodq9itPkk3Ogkq4V2XLaLLYnFihJQdBAt60Lxg/exec"
              target="_blank"
              rel="noopener noreferrer"
-             class="portal-button bg-blue-600 hover:bg-blue-700">
-            เข้าใช้งาน 
+             class="portal-button button-blue">
+            เปิดระบบ
             <i class="fa-solid fa-arrow-right text-xs"></i>
           </a>
         </div>
 
-        <!-- CARD 2 -->
+        <!-- CARD 2: ระบบออมทรัพย์นักเรียน -->
         <div class="portal-card">
           <div>
-            <div class="portal-icon bg-emerald-50 text-emerald-600">
-              <i class="fa-solid fa-piggy-bank"></i>
+            <div class="portal-image-icon">
+              <img src="images/icon-saving.png"
+                   alt="ระบบออมทรัพย์นักเรียน"
+                   class="portal-card-img">
             </div>
 
             <h3 class="portal-title">
@@ -126,17 +128,19 @@
           <a href="https://script.google.com/macros/s/AKfycbyrrhr7yxBAw_RvPGt7zse-jM6CJu7QM9YzRXSkr0O4T4xzchOMIJBYtocVNqZlVB2L/exec"
              target="_blank"
              rel="noopener noreferrer"
-             class="portal-button bg-emerald-600 hover:bg-emerald-700">
-            เข้าใช้งาน 
+             class="portal-button button-green">
+            เปิดระบบ
             <i class="fa-solid fa-arrow-right text-xs"></i>
           </a>
         </div>
 
-        <!-- CARD 3 -->
+        <!-- CARD 3: ระบบเช็คชื่อนักเรียน -->
         <div class="portal-card">
           <div>
-            <div class="portal-icon bg-amber-50 text-amber-600">
-              <i class="fa-solid fa-user-check"></i>
+            <div class="portal-image-icon">
+              <img src="images/icon-attendance.png"
+                   alt="ระบบเช็คชื่อนักเรียนรายวิชา"
+                   class="portal-card-img">
             </div>
 
             <h3 class="portal-title">
@@ -151,8 +155,8 @@
           <a href="#link-to-attendance"
              target="_blank"
              rel="noopener noreferrer"
-             class="portal-button bg-amber-500 hover:bg-amber-600">
-            เข้าใช้งาน 
+             class="portal-button button-yellow">
+            เปิดระบบ
             <i class="fa-solid fa-arrow-right text-xs"></i>
           </a>
         </div>
@@ -163,7 +167,7 @@
   </main>
 
   <!-- FOOTER -->
-  <footer class="bg-slate-900 text-slate-300 text-center py-5 text-sm">
+  <footer class="portal-footer">
     <p>
       © 2026 โรงเรียนบ้านหัวหนองแวง (สามัคคีราษฎร์บำรุง)
     </p>
