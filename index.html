@@ -13,6 +13,19 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
+    :root {
+      --green-dark: #14532d;
+      --green: #15803d;
+      --green-soft: #ecfdf5;
+      --yellow: #facc15;
+      --blue-dark: #1f4968;
+      --text-main: #0f172a;
+      --text-soft: #64748b;
+      --border-soft: #dbeafe;
+      --shadow-card: 0 18px 45px rgba(15, 23, 42, 0.10);
+      --shadow-hover: 0 26px 60px rgba(15, 23, 42, 0.16);
+    }
+
     * {
       box-sizing: border-box;
     }
@@ -23,60 +36,67 @@
       padding: 0;
       min-height: 100%;
       font-family: 'Sarabun', sans-serif;
-      color: #111827;
+      color: var(--text-main);
     }
 
     body {
       background:
-        radial-gradient(circle at top left, rgba(223, 244, 231, 0.95), transparent 36%),
-        radial-gradient(circle at top right, rgba(230, 243, 255, 0.95), transparent 38%),
-        linear-gradient(180deg, #f7fbf8 0%, #edf8f3 100%);
+        radial-gradient(circle at top left, rgba(220, 252, 231, 0.85), transparent 34%),
+        radial-gradient(circle at top right, rgba(219, 234, 254, 0.85), transparent 36%),
+        linear-gradient(180deg, #f8fafc 0%, #ecfdf5 100%);
     }
 
     .page {
-      width: min(1280px, calc(100% - 56px));
-      min-height: 760px;
-      margin: 28px auto;
-      background: linear-gradient(180deg, #ffffff 0%, #eff8f3 100%);
-      box-shadow: 0 26px 75px rgba(15, 23, 42, 0.16);
-      overflow: hidden;
+      width: min(100%, 1280px);
+      min-height: 100vh;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.96), rgba(240,253,244,0.92));
+      box-shadow: 0 20px 70px rgba(15, 23, 42, 0.10);
     }
 
     /* HEADER */
     .topbar {
-      height: 92px;
-      background: rgba(255, 255, 255, 0.97);
-      border-bottom: 1px solid #e5e7eb;
-      display: flex;
-      align-items: center;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
 
     .topbar-inner {
-      width: 100%;
-      max-width: 1080px;
+      width: min(100%, 1120px);
       margin: 0 auto;
-      padding: 0 26px;
+      padding: clamp(14px, 2vw, 22px) clamp(18px, 4vw, 32px);
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 18px;
     }
 
     .brand {
       display: flex;
       align-items: center;
       gap: 14px;
+      min-width: 0;
     }
 
     .brand-logo {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      overflow: hidden;
+      width: clamp(52px, 6vw, 68px);
+      height: clamp(52px, 6vw, 68px);
+      border-radius: 18px;
       background: #ffffff;
       display: flex;
       align-items: center;
       justify-content: center;
+      overflow: hidden;
       flex-shrink: 0;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      padding: 5px;
     }
 
     .brand-logo img {
@@ -86,127 +106,166 @@
       display: block;
     }
 
+    .brand-text {
+      min-width: 0;
+    }
+
     .brand-title {
       margin: 0;
-      font-size: 24px;
+      font-size: clamp(20px, 2.6vw, 30px);
       font-weight: 800;
-      line-height: 1.12;
-      color: #111827;
+      line-height: 1.15;
+      color: var(--text-main);
+      letter-spacing: -0.3px;
     }
 
     .brand-subtitle {
       margin: 4px 0 0;
-      font-size: 16px;
+      font-size: clamp(13px, 1.5vw, 16px);
       font-weight: 600;
-      line-height: 1.2;
-      color: #111827;
+      color: #334155;
     }
 
     .top-actions {
       display: flex;
       align-items: center;
-      gap: 13px;
+      gap: 12px;
+      flex-shrink: 0;
     }
 
     .quick-access {
       height: 42px;
       padding: 0 18px;
-      border-radius: 13px;
+      border-radius: 999px;
       background: #f1f5f9;
       color: #0f172a;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      font-size: 15px;
-      font-weight: 500;
+      font-size: 14px;
+      font-weight: 600;
       white-space: nowrap;
+      border: 1px solid rgba(226, 232, 240, 0.95);
+    }
+
+    .icon-button,
+    .avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #334155;
+      background: #f8fafc;
+      border: 1px solid rgba(226, 232, 240, 0.95);
     }
 
     .icon-button {
-      width: 40px;
-      height: 40px;
-      border: none;
-      border-radius: 50%;
-      background: transparent;
-      color: #334155;
-      font-size: 18px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
       cursor: pointer;
+      font-size: 17px;
     }
 
     .avatar {
-      width: 46px;
-      height: 46px;
-      border-radius: 50%;
       background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      color: #334155;
-      font-size: 18px;
+      font-size: 17px;
     }
 
     /* MAIN */
     .main {
-      max-width: 1080px;
+      flex: 1;
+      width: min(100%, 1120px);
       margin: 0 auto;
-      padding: 40px 26px 30px;
+      padding: clamp(34px, 5vw, 58px) clamp(18px, 4vw, 32px) clamp(28px, 4vw, 42px);
     }
 
     .hero {
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: clamp(26px, 4vw, 40px);
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #dcfce7;
+      color: #15803d;
+      border-radius: 999px;
+      padding: 7px 15px;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 14px;
     }
 
     .hero h2 {
       margin: 0;
-      font-size: 38px;
-      line-height: 1.2;
+      font-size: clamp(28px, 4vw, 46px);
+      line-height: 1.18;
       font-weight: 800;
-      color: #111827;
+      color: var(--text-main);
+      letter-spacing: -0.6px;
     }
 
     .hero p {
-      margin: 8px 0 0;
-      font-size: 17px;
-      color: #111827;
+      margin: 10px 0 0;
+      font-size: clamp(15px, 1.6vw, 18px);
+      color: var(--text-soft);
     }
 
-    /* CARD GRID */
+    /* CARDS */
     .app-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: clamp(18px, 2.5vw, 28px);
+      align-items: stretch;
     }
 
     .app-card {
-      background: #ffffff;
-      border: 1px solid rgba(226, 232, 240, 0.95);
-      border-radius: 16px;
-      padding: 26px 24px 24px;
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid rgba(187, 247, 208, 0.9);
+      border-radius: 26px;
+      padding: clamp(22px, 3vw, 30px);
       text-align: center;
-      box-shadow: 0 18px 45px rgba(36, 65, 95, 0.14);
-      min-height: 355px;
+      box-shadow: var(--shadow-card);
+      min-height: 390px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      transition: all 0.25s ease;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .app-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at top, rgba(220, 252, 231, 0.46), transparent 42%);
+      opacity: 0;
+      transition: opacity 0.25s ease;
+      pointer-events: none;
     }
 
     .app-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 26px 58px rgba(36, 65, 95, 0.18);
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-hover);
+      border-color: rgba(34, 197, 94, 0.45);
+    }
+
+    .app-card:hover::before {
+      opacity: 1;
     }
 
     .app-image {
-      width: 240px;
-      height: 155px;
-      margin-bottom: 18px;
+      width: min(100%, 230px);
+      height: clamp(120px, 16vw, 155px);
+      margin: 0 auto 18px;
       display: flex;
       align-items: center;
       justify-content: center;
+      position: relative;
+      z-index: 1;
     }
 
     .app-image img {
@@ -218,96 +277,123 @@
 
     .app-card h3 {
       margin: 0;
-      min-height: 52px;
-      font-size: 22px;
-      line-height: 1.25;
+      min-height: 56px;
+      font-size: clamp(19px, 2.1vw, 23px);
+      line-height: 1.28;
       font-weight: 800;
-      color: #111827;
+      color: var(--text-main);
       display: flex;
       align-items: center;
       justify-content: center;
+      position: relative;
+      z-index: 1;
     }
 
     .app-card p {
-      margin: 10px 0 20px;
-      min-height: 48px;
-      font-size: 15px;
-      line-height: 1.55;
-      color: #374151;
+      margin: 12px 0 22px;
+      min-height: 52px;
+      font-size: clamp(14px, 1.4vw, 15px);
+      line-height: 1.65;
+      color: #475569;
+      position: relative;
+      z-index: 1;
     }
 
     .app-button {
       margin-top: auto;
-      min-width: 124px;
-      height: 44px;
-      padding: 0 20px;
-      border-radius: 8px;
-      background: #244866;
+      min-width: 132px;
+      height: 46px;
+      padding: 0 22px;
+      border-radius: 14px;
+      background: var(--blue-dark);
       color: #ffffff;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      gap: 8px;
       font-size: 15px;
       font-weight: 700;
       transition: all 0.2s ease;
+      position: relative;
+      z-index: 1;
     }
 
     .app-button:hover {
-      background: #18344d;
+      background: #16364f;
       transform: translateY(-1px);
+    }
+
+    .button-green {
+      background: #047857;
+    }
+
+    .button-green:hover {
+      background: #065f46;
+    }
+
+    .button-yellow {
+      background: #d97706;
+    }
+
+    .button-yellow:hover {
+      background: #b45309;
     }
 
     /* FOOTER */
     .footer {
-      max-width: 1080px;
+      width: min(100%, 1120px);
       margin: 0 auto;
-      padding: 20px 26px 28px;
+      padding: 24px clamp(18px, 4vw, 32px) 32px;
       text-align: center;
-      color: #111827;
-      font-size: 15px;
+      color: #334155;
+      font-size: clamp(13px, 1.3vw, 15px);
+      line-height: 1.7;
     }
 
     .footer p {
       margin: 0;
     }
 
-    /* RESPONSIVE */
+    .footer .credit {
+      margin-top: 4px;
+      color: #64748b;
+      font-size: clamp(12px, 1.2vw, 14px);
+    }
+
+    /* TABLET */
     @media (max-width: 900px) {
-      .page {
-        width: 100%;
-        min-height: 100vh;
-        margin: 0;
-      }
-
-      .topbar {
-        height: auto;
-      }
-
       .topbar-inner {
-        padding: 18px 20px;
         flex-direction: column;
-        gap: 16px;
-      }
-
-      .top-actions {
-        display: none;
+        text-align: center;
       }
 
       .brand {
         justify-content: center;
       }
 
-      .main {
-        padding: 34px 20px;
+      .top-actions {
+        display: none;
       }
 
-      .hero h2 {
-        font-size: 29px;
+      .app-card {
+        min-height: 360px;
+      }
+    }
+
+    /* MOBILE */
+    @media (max-width: 520px) {
+      .brand {
+        flex-direction: column;
+        text-align: center;
       }
 
-      .hero p {
-        font-size: 15px;
+      .brand-logo {
+        border-radius: 20px;
+      }
+
+      .hero-badge {
+        font-size: 13px;
       }
 
       .app-grid {
@@ -315,38 +401,12 @@
       }
 
       .app-card {
-        max-width: 430px;
-        width: 100%;
-        margin: 0 auto;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .brand {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .brand-logo {
-        width: 68px;
-        height: 68px;
-      }
-
-      .brand-title {
-        font-size: 20px;
-      }
-
-      .brand-subtitle {
-        font-size: 14px;
-      }
-
-      .hero h2 {
-        font-size: 24px;
+        min-height: auto;
       }
 
       .app-image {
-        width: 190px;
-        height: 125px;
+        width: 210px;
+        height: 140px;
       }
     }
   </style>
@@ -356,7 +416,6 @@
 
   <div class="page">
 
-    <!-- HEADER -->
     <header class="topbar">
       <div class="topbar-inner">
 
@@ -365,7 +424,7 @@
             <img src="images/logo-school.png" alt="โลโก้โรงเรียนบ้านหัวหนองแวง">
           </div>
 
-          <div>
+          <div class="brand-text">
             <h1 class="brand-title">โรงเรียนบ้านหัวหนองแวง</h1>
             <p class="brand-subtitle">(สามัคคีราษฎร์บำรุง)</p>
           </div>
@@ -389,17 +448,20 @@
       </div>
     </header>
 
-    <!-- MAIN -->
     <main class="main">
 
       <section class="hero">
+        <div class="hero-badge">
+          <i class="fa-solid fa-layer-group"></i>
+          ระบบงานโรงเรียน
+        </div>
+
         <h2>ศูนย์รวมระบบแอปพลิเคชันโรงเรียน</h2>
         <p>School Web Application Portal</p>
       </section>
 
       <section class="app-grid">
 
-        <!-- ระบบงานสารบรรณ -->
         <article class="app-card">
           <div class="app-image">
             <img src="images/icon-saraban.png" alt="ระบบงานสารบรรณเอกสาร">
@@ -407,19 +469,17 @@
 
           <h3>ระบบงานสารบรรณเอกสาร</h3>
 
-          <p>
-            รับ-ส่งหนังสือ ออกเลข และตรวจสอบเอกสารราชการของโรงเรียน
-          </p>
+          <p>รับ-ส่งหนังสือ ออกเลข และตรวจสอบเอกสารราชการของโรงเรียน</p>
 
           <a href="https://script.google.com/macros/s/AKfycbwKuEB-2bXKcPfuwtDIvLziWuSHXs9wodq9itPkk3Ogkq4V2XLaLLYnFihJQdBAt60Lxg/exec"
              target="_blank"
              rel="noopener noreferrer"
              class="app-button">
-            เข้าสู่ระบบ
+            เปิดระบบ
+            <i class="fa-solid fa-arrow-right"></i>
           </a>
         </article>
 
-        <!-- ระบบออมทรัพย์นักเรียน -->
         <article class="app-card">
           <div class="app-image">
             <img src="images/icon-saving.png" alt="ระบบออมทรัพย์นักเรียน">
@@ -427,19 +487,17 @@
 
           <h3>ระบบออมทรัพย์นักเรียน</h3>
 
-          <p>
-            บันทึกรายรับ รายจ่าย ตรวจสอบยอดเงิน และรายงานสถิติการออม
-          </p>
+          <p>บันทึกรายรับ รายจ่าย ตรวจสอบยอดเงิน และรายงานสถิติการออม</p>
 
           <a href="https://script.google.com/macros/s/AKfycbyrrhr7yxBAw_RvPGt7zse-jM6CJu7QM9YzRXSkr0O4T4xzchOMIJBYtocVNqZlVB2L/exec"
              target="_blank"
              rel="noopener noreferrer"
-             class="app-button">
-            เข้าสู่ระบบ
+             class="app-button button-green">
+            เปิดระบบ
+            <i class="fa-solid fa-arrow-right"></i>
           </a>
         </article>
 
-        <!-- ระบบเช็คชื่อนักเรียน -->
         <article class="app-card">
           <div class="app-image">
             <img src="images/icon-attendance.png" alt="ระบบเช็คชื่อนักเรียนรายวิชา">
@@ -447,15 +505,14 @@
 
           <h3>ระบบเช็คชื่อนักเรียนรายวิชา</h3>
 
-          <p>
-            เช็คชื่อรายคาบ ติดตาม และสรุปสถิติการเข้าเรียนของนักเรียน
-          </p>
+          <p>เช็คชื่อรายคาบ ติดตาม และสรุปสถิติการเข้าเรียนของนักเรียน</p>
 
           <a href="#link-to-attendance"
              target="_blank"
              rel="noopener noreferrer"
-             class="app-button">
-            เข้าสู่ระบบ
+             class="app-button button-yellow">
+            เปิดระบบ
+            <i class="fa-solid fa-arrow-right"></i>
           </a>
         </article>
 
@@ -463,9 +520,9 @@
 
     </main>
 
-    <!-- FOOTER -->
     <footer class="footer">
       <p>ลิขสิทธิ์ © 2026 โรงเรียนบ้านหัวหนองแวง (สามัคคีราษฎร์บำรุง)</p>
+      <p class="credit">/by คุณครูเกียรติพงษ์ พิมพ์สิงห์</p>
     </footer>
 
   </div>
