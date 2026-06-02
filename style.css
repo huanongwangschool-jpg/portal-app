@@ -1,60 +1,125 @@
+:root {
+  --school-green-dark: #14532d;
+  --school-green: #15803d;
+  --school-green-light: #22c55e;
+  --school-yellow: #eab308;
+  --text-dark: #1e293b;
+  --text-muted: #64748b;
+  --card-border: #dcfce7;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Sarabun', sans-serif;
+  background: linear-gradient(180deg, #f0fdf4 0%, #ffffff 45%, #f8fafc 100%);
 }
 
-/* หัวเว็บ */
+/* HEADER */
 .portal-header {
-  background: linear-gradient(135deg, #14532d, #15803d, #eab308);
+  background: linear-gradient(
+    135deg,
+    var(--school-green-dark),
+    var(--school-green),
+    var(--school-yellow)
+  );
+  box-shadow: 0 14px 35px rgba(15, 23, 42, 0.18);
 }
 
-/* การ์ดระบบ */
-.portal-card {
+/* LOGO SCHOOL */
+.school-logo-box {
+  width: 74px;
+  height: 74px;
   background: #ffffff;
-  border: 1px solid #dcfce7;
-  border-radius: 28px;
+  border-radius: 999px;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.18);
+}
+
+.school-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* BADGE */
+.portal-badge {
+  background: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 999px;
+  padding: 10px 20px;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  backdrop-filter: blur(10px);
+}
+
+/* CARD */
+.portal-card {
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid var(--card-border);
+  border-radius: 30px;
   padding: 32px;
   text-align: center;
-  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  box-shadow: 0 14px 35px rgba(15, 23, 42, 0.08);
   transition: all 0.25s ease;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 360px;
+  min-height: 410px;
 }
 
 .portal-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 22px 45px rgba(15, 23, 42, 0.14);
+  box-shadow: 0 24px 50px rgba(15, 23, 42, 0.14);
+  border-color: #bbf7d0;
 }
 
-/* ไอคอน */
-.portal-icon {
-  width: 82px;
-  height: 82px;
-  margin: 0 auto 22px;
-  border-radius: 24px;
+/* IMAGE ICON */
+.portal-image-icon {
+  width: 170px;
+  height: 135px;
+  margin: 0 auto 24px;
+  border-radius: 28px;
+  background: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 38px;
+  overflow: hidden;
 }
 
-/* ชื่อระบบ */
+.portal-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* TITLE */
 .portal-title {
   font-size: 20px;
   font-weight: 700;
-  color: #1e293b;
+  color: var(--text-dark);
   margin-bottom: 12px;
 }
 
-/* คำอธิบาย */
+/* DESCRIPTION */
 .portal-description {
   font-size: 14px;
-  color: #64748b;
+  color: var(--text-muted);
   line-height: 1.8;
+  max-width: 310px;
+  margin: 0 auto;
 }
 
-/* ปุ่ม */
+/* BUTTON */
 .portal-button {
   margin-top: 28px;
   width: 100%;
@@ -62,7 +127,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  color: white;
+  color: #ffffff;
   font-weight: 600;
   padding: 13px 20px;
   border-radius: 16px;
@@ -72,4 +137,60 @@ body {
 
 .portal-button:hover {
   transform: translateY(-1px);
+}
+
+.button-blue {
+  background: #2563eb;
+}
+
+.button-blue:hover {
+  background: #1d4ed8;
+}
+
+.button-green {
+  background: #059669;
+}
+
+.button-green:hover {
+  background: #047857;
+}
+
+.button-yellow {
+  background: #f59e0b;
+}
+
+.button-yellow:hover {
+  background: #d97706;
+}
+
+/* FOOTER */
+.portal-footer {
+  background: #0f172a;
+  color: #cbd5e1;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  border-top: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .school-logo-box {
+    width: 68px;
+    height: 68px;
+  }
+
+  .portal-card {
+    min-height: auto;
+    padding: 28px;
+  }
+
+  .portal-image-icon {
+    width: 150px;
+    height: 120px;
+  }
+
+  .portal-title {
+    font-size: 18px;
+  }
 }
