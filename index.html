@@ -8,22 +8,30 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
     :root {
-      --green-dark: #14532d;
-      --green: #15803d;
-      --green-soft: #ecfdf5;
-      --yellow: #facc15;
-      --blue-dark: #1f4968;
-      --text-main: #0f172a;
-      --text-soft: #64748b;
-      --border-soft: #dbeafe;
-      --shadow-card: 0 18px 45px rgba(15, 23, 42, 0.10);
-      --shadow-hover: 0 26px 60px rgba(15, 23, 42, 0.16);
+      --green-900: #14532d;
+      --green-800: #166534;
+      --green-700: #15803d;
+      --green-100: #dcfce7;
+      --green-50: #f0fdf4;
+      --yellow-500: #eab308;
+      --yellow-600: #ca8a04;
+      --blue-900: #16324f;
+      --blue-800: #1f4968;
+      --slate-900: #0f172a;
+      --slate-700: #334155;
+      --slate-600: #475569;
+      --slate-500: #64748b;
+      --slate-200: #e2e8f0;
+      --white: #ffffff;
+
+      --shadow-soft: 0 18px 50px rgba(15, 23, 42, 0.08);
+      --shadow-hover: 0 24px 60px rgba(15, 23, 42, 0.14);
     }
 
     * {
@@ -35,42 +43,42 @@
       margin: 0;
       padding: 0;
       min-height: 100%;
-      font-family: 'Sarabun', sans-serif;
-      color: var(--text-main);
-    }
-
-    body {
+      font-family: 'Prompt', sans-serif;
+      color: var(--slate-900);
       background:
         radial-gradient(circle at top left, rgba(220, 252, 231, 0.85), transparent 34%),
-        radial-gradient(circle at top right, rgba(219, 234, 254, 0.85), transparent 36%),
+        radial-gradient(circle at top right, rgba(219, 234, 254, 0.85), transparent 34%),
         linear-gradient(180deg, #f8fafc 0%, #ecfdf5 100%);
     }
 
-    .page {
-      width: min(100%, 1280px);
-      min-height: 100vh;
-      margin: 0 auto;
+    body {
       display: flex;
       flex-direction: column;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.96), rgba(240,253,244,0.92));
-      box-shadow: 0 20px 70px rgba(15, 23, 42, 0.10);
+    }
+
+    .page {
+      width: min(100%, 1400px);
+      margin: 0 auto;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: linear-gradient(180deg, rgba(255,255,255,0.94), rgba(240,253,244,0.96));
+      box-shadow: 0 20px 70px rgba(15, 23, 42, 0.08);
     }
 
     /* HEADER */
     .topbar {
-      background: rgba(255, 255, 255, 0.92);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(226, 232, 240, 0.9);
-      position: sticky;
-      top: 0;
-      z-index: 10;
+      background:
+        linear-gradient(135deg, var(--green-900) 0%, var(--green-800) 38%, var(--green-700) 72%, var(--yellow-600) 100%);
+      color: var(--white);
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 10px 30px rgba(21, 128, 61, 0.18);
     }
 
     .topbar-inner {
-      width: min(100%, 1120px);
+      width: min(100%, 1160px);
       margin: 0 auto;
-      padding: clamp(14px, 2vw, 22px) clamp(18px, 4vw, 32px);
+      padding: clamp(16px, 2vw, 24px) clamp(18px, 4vw, 32px);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -80,23 +88,22 @@
     .brand {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 16px;
       min-width: 0;
     }
 
     .brand-logo {
-      width: clamp(52px, 6vw, 68px);
-      height: clamp(52px, 6vw, 68px);
-      border-radius: 18px;
-      background: #ffffff;
+      width: clamp(58px, 6vw, 78px);
+      height: clamp(58px, 6vw, 78px);
+      border-radius: 22px;
+      background: rgba(255,255,255,0.96);
+      padding: 6px;
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
       flex-shrink: 0;
-      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
-      border: 1px solid rgba(226, 232, 240, 0.9);
-      padding: 5px;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.10);
+      overflow: hidden;
     }
 
     .brand-logo img {
@@ -112,18 +119,26 @@
 
     .brand-title {
       margin: 0;
-      font-size: clamp(20px, 2.6vw, 30px);
+      font-size: clamp(22px, 2.8vw, 36px);
+      line-height: 1.1;
       font-weight: 800;
-      line-height: 1.15;
-      color: var(--text-main);
+      color: var(--white);
       letter-spacing: -0.3px;
+      text-shadow: 0 1px 1px rgba(0,0,0,0.15);
     }
 
     .brand-subtitle {
+      margin: 5px 0 0;
+      font-size: clamp(13px, 1.4vw, 18px);
+      font-weight: 500;
+      color: rgba(255,255,255,0.92);
+    }
+
+    .brand-note {
       margin: 4px 0 0;
-      font-size: clamp(13px, 1.5vw, 16px);
-      font-weight: 600;
-      color: #334155;
+      font-size: clamp(12px, 1.2vw, 15px);
+      font-weight: 400;
+      color: rgba(255,255,255,0.86);
     }
 
     .top-actions {
@@ -134,31 +149,33 @@
     }
 
     .quick-access {
-      height: 42px;
+      height: 44px;
       padding: 0 18px;
       border-radius: 999px;
-      background: #f1f5f9;
-      color: #0f172a;
+      background: rgba(255,255,255,0.18);
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.18);
       display: inline-flex;
       align-items: center;
       gap: 8px;
       font-size: 14px;
       font-weight: 600;
+      backdrop-filter: blur(10px);
       white-space: nowrap;
-      border: 1px solid rgba(226, 232, 240, 0.95);
     }
 
     .icon-button,
     .avatar {
-      width: 42px;
-      height: 42px;
+      width: 44px;
+      height: 44px;
       border-radius: 999px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      color: #334155;
-      background: #f8fafc;
-      border: 1px solid rgba(226, 232, 240, 0.95);
+      border: 1px solid rgba(255,255,255,0.20);
+      background: rgba(255,255,255,0.16);
+      color: var(--white);
+      backdrop-filter: blur(10px);
     }
 
     .icon-button {
@@ -167,73 +184,73 @@
     }
 
     .avatar {
-      background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
-      font-size: 17px;
+      font-size: 18px;
     }
 
     /* MAIN */
     .main {
       flex: 1;
-      width: min(100%, 1120px);
+      width: min(100%, 1160px);
       margin: 0 auto;
-      padding: clamp(34px, 5vw, 58px) clamp(18px, 4vw, 32px) clamp(28px, 4vw, 42px);
+      padding: clamp(34px, 5vw, 60px) clamp(18px, 4vw, 32px) clamp(36px, 4vw, 48px);
     }
 
     .hero {
       text-align: center;
-      margin-bottom: clamp(26px, 4vw, 40px);
+      margin-bottom: clamp(26px, 4vw, 42px);
     }
 
     .hero-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: #dcfce7;
-      color: #15803d;
+      padding: 8px 16px;
       border-radius: 999px;
-      padding: 7px 15px;
+      background: var(--green-100);
+      color: var(--green-700);
       font-size: 14px;
       font-weight: 700;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
     }
 
     .hero h2 {
       margin: 0;
-      font-size: clamp(28px, 4vw, 46px);
-      line-height: 1.18;
+      font-size: clamp(30px, 4vw, 52px);
+      line-height: 1.16;
       font-weight: 800;
-      color: var(--text-main);
+      color: var(--slate-900);
       letter-spacing: -0.6px;
     }
 
     .hero p {
       margin: 10px 0 0;
-      font-size: clamp(15px, 1.6vw, 18px);
-      color: var(--text-soft);
+      font-size: clamp(15px, 1.5vw, 18px);
+      color: var(--slate-500);
+      font-weight: 400;
     }
 
-    /* CARDS */
+    /* GRID */
     .app-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: clamp(18px, 2.5vw, 28px);
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: clamp(18px, 2.4vw, 28px);
       align-items: stretch;
     }
 
     .app-card {
-      background: rgba(255, 255, 255, 0.96);
-      border: 1px solid rgba(187, 247, 208, 0.9);
-      border-radius: 26px;
-      padding: clamp(22px, 3vw, 30px);
+      background: rgba(255,255,255,0.98);
+      border: 1px solid rgba(187, 247, 208, 0.95);
+      border-radius: 28px;
+      padding: clamp(24px, 3vw, 32px);
       text-align: center;
-      box-shadow: var(--shadow-card);
-      min-height: 390px;
+      box-shadow: var(--shadow-soft);
+      min-height: 420px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
       position: relative;
       overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
     }
 
     .app-card::before {
@@ -241,7 +258,7 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(circle at top, rgba(220, 252, 231, 0.46), transparent 42%);
+        radial-gradient(circle at top, rgba(220,252,231,0.45), transparent 42%);
       opacity: 0;
       transition: opacity 0.25s ease;
       pointer-events: none;
@@ -258,8 +275,8 @@
     }
 
     .app-image {
-      width: min(100%, 230px);
-      height: clamp(120px, 16vw, 155px);
+      width: min(100%, 260px);
+      height: clamp(140px, 18vw, 180px);
       margin: 0 auto 18px;
       display: flex;
       align-items: center;
@@ -277,11 +294,11 @@
 
     .app-card h3 {
       margin: 0;
-      min-height: 56px;
-      font-size: clamp(19px, 2.1vw, 23px);
+      min-height: 58px;
+      font-size: clamp(20px, 2vw, 25px);
       line-height: 1.28;
-      font-weight: 800;
-      color: var(--text-main);
+      font-weight: 700;
+      color: var(--slate-900);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -291,22 +308,22 @@
 
     .app-card p {
       margin: 12px 0 22px;
-      min-height: 52px;
-      font-size: clamp(14px, 1.4vw, 15px);
-      line-height: 1.65;
-      color: #475569;
+      min-height: 60px;
+      font-size: clamp(14px, 1.3vw, 15px);
+      line-height: 1.7;
+      color: var(--slate-600);
       position: relative;
       z-index: 1;
     }
 
     .app-button {
       margin-top: auto;
-      min-width: 132px;
-      height: 46px;
+      min-width: 138px;
+      height: 48px;
       padding: 0 22px;
       border-radius: 14px;
-      background: var(--blue-dark);
-      color: #ffffff;
+      background: var(--blue-800);
+      color: var(--white);
       text-decoration: none;
       display: inline-flex;
       align-items: center;
@@ -317,23 +334,26 @@
       transition: all 0.2s ease;
       position: relative;
       z-index: 1;
+      box-shadow: 0 8px 18px rgba(31, 73, 104, 0.18);
     }
 
     .app-button:hover {
-      background: #16364f;
       transform: translateY(-1px);
+      background: var(--blue-900);
     }
 
     .button-green {
-      background: #047857;
+      background: #059669;
+      box-shadow: 0 8px 18px rgba(5, 150, 105, 0.18);
     }
 
     .button-green:hover {
-      background: #065f46;
+      background: #047857;
     }
 
     .button-yellow {
       background: #d97706;
+      box-shadow: 0 8px 18px rgba(217, 119, 6, 0.18);
     }
 
     .button-yellow:hover {
@@ -341,14 +361,20 @@
     }
 
     /* FOOTER */
+    .footer-wrap {
+      background: linear-gradient(135deg, var(--slate-900), #1e3a5f);
+      margin-top: auto;
+      box-shadow: 0 -10px 30px rgba(15, 23, 42, 0.10);
+    }
+
     .footer {
-      width: min(100%, 1120px);
+      width: min(100%, 1160px);
       margin: 0 auto;
-      padding: 24px clamp(18px, 4vw, 32px) 32px;
+      padding: 22px clamp(18px, 4vw, 32px) 28px;
       text-align: center;
-      color: #334155;
-      font-size: clamp(13px, 1.3vw, 15px);
-      line-height: 1.7;
+      color: rgba(255,255,255,0.95);
+      font-size: clamp(13px, 1.2vw, 15px);
+      line-height: 1.8;
     }
 
     .footer p {
@@ -356,9 +382,9 @@
     }
 
     .footer .credit {
-      margin-top: 4px;
-      color: #64748b;
-      font-size: clamp(12px, 1.2vw, 14px);
+      color: rgba(255,255,255,0.78);
+      font-size: clamp(12px, 1.1vw, 14px);
+      margin-top: 3px;
     }
 
     /* TABLET */
@@ -370,6 +396,7 @@
 
       .brand {
         justify-content: center;
+        flex-direction: column;
       }
 
       .top-actions {
@@ -377,19 +404,14 @@
       }
 
       .app-card {
-        min-height: 360px;
+        min-height: 390px;
       }
     }
 
     /* MOBILE */
     @media (max-width: 520px) {
-      .brand {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .brand-logo {
-        border-radius: 20px;
+      .main {
+        padding-top: 28px;
       }
 
       .hero-badge {
@@ -405,8 +427,12 @@
       }
 
       .app-image {
-        width: 210px;
-        height: 140px;
+        width: 220px;
+        height: 150px;
+      }
+
+      .brand-logo {
+        border-radius: 20px;
       }
     }
   </style>
@@ -416,6 +442,7 @@
 
   <div class="page">
 
+    <!-- HEADER -->
     <header class="topbar">
       <div class="topbar-inner">
 
@@ -427,6 +454,7 @@
           <div class="brand-text">
             <h1 class="brand-title">โรงเรียนบ้านหัวหนองแวง</h1>
             <p class="brand-subtitle">(สามัคคีราษฎร์บำรุง)</p>
+            <p class="brand-note">ศูนย์รวมระบบเว็บแอปพลิเคชันโรงเรียน</p>
           </div>
         </div>
 
@@ -448,6 +476,7 @@
       </div>
     </header>
 
+    <!-- MAIN -->
     <main class="main">
 
       <section class="hero">
@@ -462,6 +491,7 @@
 
       <section class="app-grid">
 
+        <!-- ระบบงานสารบรรณ -->
         <article class="app-card">
           <div class="app-image">
             <img src="images/icon-saraban.png" alt="ระบบงานสารบรรณเอกสาร">
@@ -469,7 +499,9 @@
 
           <h3>ระบบงานสารบรรณเอกสาร</h3>
 
-          <p>รับ-ส่งหนังสือ ออกเลข และตรวจสอบเอกสารราชการของโรงเรียน</p>
+          <p>
+            รับ-ส่งหนังสือ ออกเลข และตรวจสอบเอกสารราชการของโรงเรียน
+          </p>
 
           <a href="https://script.google.com/macros/s/AKfycbwKuEB-2bXKcPfuwtDIvLziWuSHXs9wodq9itPkk3Ogkq4V2XLaLLYnFihJQdBAt60Lxg/exec"
              target="_blank"
@@ -480,6 +512,7 @@
           </a>
         </article>
 
+        <!-- ระบบออมทรัพย์นักเรียน -->
         <article class="app-card">
           <div class="app-image">
             <img src="images/icon-saving.png" alt="ระบบออมทรัพย์นักเรียน">
@@ -487,7 +520,9 @@
 
           <h3>ระบบออมทรัพย์นักเรียน</h3>
 
-          <p>บันทึกรายรับ รายจ่าย ตรวจสอบยอดเงิน และรายงานสถิติการออม</p>
+          <p>
+            บันทึกรายรับ รายจ่าย ตรวจสอบยอดเงิน และรายงานสถิติการออม
+          </p>
 
           <a href="https://script.google.com/macros/s/AKfycbyrrhr7yxBAw_RvPGt7zse-jM6CJu7QM9YzRXSkr0O4T4xzchOMIJBYtocVNqZlVB2L/exec"
              target="_blank"
@@ -498,6 +533,7 @@
           </a>
         </article>
 
+        <!-- ระบบเช็คชื่อนักเรียน -->
         <article class="app-card">
           <div class="app-image">
             <img src="images/icon-attendance.png" alt="ระบบเช็คชื่อนักเรียนรายวิชา">
@@ -505,7 +541,9 @@
 
           <h3>ระบบเช็คชื่อนักเรียนรายวิชา</h3>
 
-          <p>เช็คชื่อรายคาบ ติดตาม และสรุปสถิติการเข้าเรียนของนักเรียน</p>
+          <p>
+            เช็คชื่อรายคาบ ติดตาม และสรุปสถิติการเข้าเรียนของนักเรียน
+          </p>
 
           <a href="#link-to-attendance"
              target="_blank"
@@ -520,10 +558,13 @@
 
     </main>
 
-    <footer class="footer">
-      <p>ลิขสิทธิ์ © 2026 โรงเรียนบ้านหัวหนองแวง (สามัคคีราษฎร์บำรุง)</p>
-      <p class="credit">/by คุณครูเกียรติพงษ์ พิมพ์สิงห์</p>
-    </footer>
+    <!-- FOOTER -->
+    <div class="footer-wrap">
+      <footer class="footer">
+        <p>ลิขสิทธิ์ © 2026 โรงเรียนบ้านหัวหนองแวง (สามัคคีราษฎร์บำรุง)</p>
+        <p class="credit">/by คุณครูเกียรติพงษ์ พิมพ์สิงห์</p>
+      </footer>
+    </div>
 
   </div>
 
