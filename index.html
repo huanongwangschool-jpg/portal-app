@@ -17,7 +17,8 @@
       box-sizing: border-box;
     }
 
-    html, body {
+    html,
+    body {
       margin: 0;
       padding: 0;
       min-height: 100%;
@@ -27,23 +28,24 @@
 
     body {
       background:
-        radial-gradient(circle at top left, rgba(229, 246, 235, 0.95), transparent 36%),
-        radial-gradient(circle at top right, rgba(231, 242, 255, 0.9), transparent 38%),
-        linear-gradient(180deg, #f8fbf8 0%, #eef8f3 100%);
+        radial-gradient(circle at top left, rgba(223, 244, 231, 0.95), transparent 36%),
+        radial-gradient(circle at top right, rgba(230, 243, 255, 0.95), transparent 38%),
+        linear-gradient(180deg, #f7fbf8 0%, #edf8f3 100%);
     }
 
     .page {
-      max-width: 1180px;
+      width: min(1280px, calc(100% - 56px));
       min-height: 760px;
-      margin: 32px auto;
-      background: linear-gradient(180deg, #ffffff 0%, #eef8f3 100%);
-      box-shadow: 0 24px 70px rgba(15, 23, 42, 0.16);
+      margin: 28px auto;
+      background: linear-gradient(180deg, #ffffff 0%, #eff8f3 100%);
+      box-shadow: 0 26px 75px rgba(15, 23, 42, 0.16);
       overflow: hidden;
     }
 
+    /* HEADER */
     .topbar {
-      height: 88px;
-      background: rgba(255, 255, 255, 0.96);
+      height: 92px;
+      background: rgba(255, 255, 255, 0.97);
       border-bottom: 1px solid #e5e7eb;
       display: flex;
       align-items: center;
@@ -51,9 +53,9 @@
 
     .topbar-inner {
       width: 100%;
-      max-width: 980px;
+      max-width: 1080px;
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 0 26px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -66,8 +68,8 @@
     }
 
     .brand-logo {
-      width: 58px;
-      height: 58px;
+      width: 64px;
+      height: 64px;
       border-radius: 50%;
       overflow: hidden;
       background: #ffffff;
@@ -86,15 +88,15 @@
 
     .brand-title {
       margin: 0;
-      font-size: 22px;
+      font-size: 24px;
       font-weight: 800;
-      line-height: 1.15;
+      line-height: 1.12;
       color: #111827;
     }
 
     .brand-subtitle {
-      margin: 3px 0 0;
-      font-size: 15px;
+      margin: 4px 0 0;
+      font-size: 16px;
       font-weight: 600;
       line-height: 1.2;
       color: #111827;
@@ -103,26 +105,26 @@
     .top-actions {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 13px;
     }
 
     .quick-access {
-      height: 40px;
-      padding: 0 17px;
-      border-radius: 12px;
+      height: 42px;
+      padding: 0 18px;
+      border-radius: 13px;
       background: #f1f5f9;
       color: #0f172a;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 500;
       white-space: nowrap;
     }
 
     .icon-button {
-      width: 38px;
-      height: 38px;
+      width: 40px;
+      height: 40px;
       border: none;
       border-radius: 50%;
       background: transparent;
@@ -131,11 +133,12 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      cursor: pointer;
     }
 
     .avatar {
-      width: 44px;
-      height: 44px;
+      width: 46px;
+      height: 46px;
       border-radius: 50%;
       background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
       display: inline-flex;
@@ -145,10 +148,11 @@
       font-size: 18px;
     }
 
+    /* MAIN */
     .main {
-      max-width: 980px;
+      max-width: 1080px;
       margin: 0 auto;
-      padding: 38px 24px 28px;
+      padding: 40px 26px 30px;
     }
 
     .hero {
@@ -158,32 +162,33 @@
 
     .hero h2 {
       margin: 0;
-      font-size: 36px;
+      font-size: 38px;
       line-height: 1.2;
       font-weight: 800;
       color: #111827;
     }
 
     .hero p {
-      margin: 7px 0 0;
-      font-size: 16px;
+      margin: 8px 0 0;
+      font-size: 17px;
       color: #111827;
     }
 
+    /* CARD GRID */
     .app-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
+      gap: 24px;
     }
 
     .app-card {
       background: #ffffff;
-      border: 1px solid rgba(226, 232, 240, 0.9);
-      border-radius: 14px;
-      padding: 24px 24px 22px;
+      border: 1px solid rgba(226, 232, 240, 0.95);
+      border-radius: 16px;
+      padding: 26px 24px 24px;
       text-align: center;
       box-shadow: 0 18px 45px rgba(36, 65, 95, 0.14);
-      min-height: 330px;
+      min-height: 355px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -192,12 +197,12 @@
 
     .app-card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 24px 55px rgba(36, 65, 95, 0.18);
+      box-shadow: 0 26px 58px rgba(36, 65, 95, 0.18);
     }
 
     .app-image {
-      width: 210px;
-      height: 135px;
+      width: 240px;
+      height: 155px;
       margin-bottom: 18px;
       display: flex;
       align-items: center;
@@ -213,8 +218,8 @@
 
     .app-card h3 {
       margin: 0;
-      min-height: 50px;
-      font-size: 21px;
+      min-height: 52px;
+      font-size: 22px;
       line-height: 1.25;
       font-weight: 800;
       color: #111827;
@@ -224,18 +229,18 @@
     }
 
     .app-card p {
-      margin: 10px 0 18px;
-      min-height: 46px;
-      font-size: 14px;
+      margin: 10px 0 20px;
+      min-height: 48px;
+      font-size: 15px;
       line-height: 1.55;
       color: #374151;
     }
 
     .app-button {
       margin-top: auto;
-      min-width: 118px;
-      height: 42px;
-      padding: 0 18px;
+      min-width: 124px;
+      height: 44px;
+      padding: 0 20px;
       border-radius: 8px;
       background: #244866;
       color: #ffffff;
@@ -243,7 +248,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 700;
       transition: all 0.2s ease;
     }
@@ -253,23 +258,26 @@
       transform: translateY(-1px);
     }
 
+    /* FOOTER */
     .footer {
-      max-width: 980px;
+      max-width: 1080px;
       margin: 0 auto;
-      padding: 18px 24px 26px;
+      padding: 20px 26px 28px;
       text-align: center;
       color: #111827;
-      font-size: 14px;
+      font-size: 15px;
     }
 
     .footer p {
       margin: 0;
     }
 
+    /* RESPONSIVE */
     @media (max-width: 900px) {
       .page {
-        margin: 0;
+        width: 100%;
         min-height: 100vh;
+        margin: 0;
       }
 
       .topbar {
@@ -295,7 +303,11 @@
       }
 
       .hero h2 {
-        font-size: 28px;
+        font-size: 29px;
+      }
+
+      .hero p {
+        font-size: 15px;
       }
 
       .app-grid {
@@ -315,6 +327,11 @@
         text-align: center;
       }
 
+      .brand-logo {
+        width: 68px;
+        height: 68px;
+      }
+
       .brand-title {
         font-size: 20px;
       }
@@ -328,8 +345,8 @@
       }
 
       .app-image {
-        width: 185px;
-        height: 122px;
+        width: 190px;
+        height: 125px;
       }
     }
   </style>
@@ -339,6 +356,7 @@
 
   <div class="page">
 
+    <!-- HEADER -->
     <header class="topbar">
       <div class="topbar-inner">
 
@@ -371,6 +389,7 @@
       </div>
     </header>
 
+    <!-- MAIN -->
     <main class="main">
 
       <section class="hero">
@@ -380,6 +399,7 @@
 
       <section class="app-grid">
 
+        <!-- ระบบงานสารบรรณ -->
         <article class="app-card">
           <div class="app-image">
             <img src="images/icon-saraban.png" alt="ระบบงานสารบรรณเอกสาร">
@@ -387,7 +407,9 @@
 
           <h3>ระบบงานสารบรรณเอกสาร</h3>
 
-          <p>รับ-ส่งหนังสือ ออกเลข และตรวจสอบเอกสารราชการของโรงเรียน</p>
+          <p>
+            รับ-ส่งหนังสือ ออกเลข และตรวจสอบเอกสารราชการของโรงเรียน
+          </p>
 
           <a href="https://script.google.com/macros/s/AKfycbwKuEB-2bXKcPfuwtDIvLziWuSHXs9wodq9itPkk3Ogkq4V2XLaLLYnFihJQdBAt60Lxg/exec"
              target="_blank"
@@ -397,6 +419,7 @@
           </a>
         </article>
 
+        <!-- ระบบออมทรัพย์นักเรียน -->
         <article class="app-card">
           <div class="app-image">
             <img src="images/icon-saving.png" alt="ระบบออมทรัพย์นักเรียน">
@@ -404,7 +427,9 @@
 
           <h3>ระบบออมทรัพย์นักเรียน</h3>
 
-          <p>บันทึกรายรับ รายจ่าย ตรวจสอบยอดเงิน และรายงานสถิติการออม</p>
+          <p>
+            บันทึกรายรับ รายจ่าย ตรวจสอบยอดเงิน และรายงานสถิติการออม
+          </p>
 
           <a href="https://script.google.com/macros/s/AKfycbyrrhr7yxBAw_RvPGt7zse-jM6CJu7QM9YzRXSkr0O4T4xzchOMIJBYtocVNqZlVB2L/exec"
              target="_blank"
@@ -414,6 +439,7 @@
           </a>
         </article>
 
+        <!-- ระบบเช็คชื่อนักเรียน -->
         <article class="app-card">
           <div class="app-image">
             <img src="images/icon-attendance.png" alt="ระบบเช็คชื่อนักเรียนรายวิชา">
@@ -421,7 +447,9 @@
 
           <h3>ระบบเช็คชื่อนักเรียนรายวิชา</h3>
 
-          <p>เช็คชื่อรายคาบ ติดตาม และสรุปสถิติการเข้าเรียนของนักเรียน</p>
+          <p>
+            เช็คชื่อรายคาบ ติดตาม และสรุปสถิติการเข้าเรียนของนักเรียน
+          </p>
 
           <a href="#link-to-attendance"
              target="_blank"
@@ -435,6 +463,7 @@
 
     </main>
 
+    <!-- FOOTER -->
     <footer class="footer">
       <p>ลิขสิทธิ์ © 2026 โรงเรียนบ้านหัวหนองแวง (สามัคคีราษฎร์บำรุง)</p>
     </footer>
