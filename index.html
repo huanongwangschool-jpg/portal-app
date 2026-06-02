@@ -1,112 +1,176 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ระบบรวมเว็บแอปพลิเคชัน - โรงเรียนบ้านหัวหนองแวง(สามัคคีราษฎร์บำรุง)</title>
-    <!-- นำเข้า Tailwind CSS จาก CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- นำเข้า Google Fonts (สารบรรณ) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <!-- นำเข้า Font Awesome (เวอร์ชันเสถียร แก้ไขจุดพิมพ์ผิดเรียบร้อย) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <style>
-        body {
-            font-family: 'Sarabun', sans-serif;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>ศูนย์รวมเว็บแอปโรงเรียนบ้านหัวหนองแวง</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Font: Sarabun -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    body {
+      font-family: 'Sarabun', sans-serif;
+    }
+  </style>
 </head>
-<body class="bg-slate-50 min-h-screen flex flex-col justify-between">
 
-    <!-- HEADER SECTION -->
-    <header class="bg-indigo-900 text-white shadow-lg border-b border-indigo-950">
-        <div class="container mx-auto px-6 py-5 flex flex-col md:flex-row justify-between items-center gap-4">
-            <div class="flex items-center gap-4 text-center md:text-left">
-                <!-- ตราสัญลักษณ์จำลอง -->
-                <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center text-indigo-900 text-2xl font-bold shadow-inner">
-                    <i class="fa-solid fa-school"></i>
-                </div>
-                <div>
-                    <h1 class="text-xl md:text-2xl font-bold tracking-wide">โรงเรียนบ้านหัวหนองแวง (สามัคคีราษฎร์บำรุง)</h1>
-                    <p class="text-xs text-indigo-200 mt-0.5">ศูนย์รวมระบบเว็บแอปพลิเคชันโรงเรียน (School Web Application Portal)</p>
-                </div>
-            </div>
-            <!-- ระบบต้อนรับผู้ใช้งาน -->
-            <div class="bg-indigo-950/50 px-5 py-2.5 rounded-full text-sm flex items-center gap-2.5 border border-indigo-700/50">
-                <span class="w-2.5 h-2.5 bg-emerald-400 rounded-full animate-pulse"></span>
-                <span class="font-medium text-indigo-100">สวัสดี, คุณครูผู้ใช้งาน</span>
-            </div>
-        </div>
-    </header>
+<body class="min-h-screen bg-gradient-to-b from-green-50 via-white to-slate-50 flex flex-col">
 
-    <!-- MAIN CONTENT -->
-    <main class="container mx-auto px-6 py-14 flex-grow flex flex-col justify-center">
-        <div class="text-center mb-12">
-            <h2 class="text-2xl md:text-3xl font-bold text-gray-800">กรุณาเลือกระบบงานที่ต้องการใช้งาน</h2>
-            <p class="text-gray-500 text-sm md:text-base mt-2">คลิกที่ปุ่มเข้าสู่ระบบเพื่อเปิดหน้าต่างเว็บแอปพลิเคชัน</p>
+  <!-- HEADER -->
+  <header class="portal-header text-white shadow-lg">
+    <div class="max-w-6xl mx-auto px-5 py-6 flex flex-col md:flex-row justify-between items-center gap-5">
+
+      <div class="flex flex-col md:flex-row items-center gap-4 text-center md:text-left">
+        <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center text-green-800 text-3xl shadow-md">
+          <i class="fa-solid fa-school"></i>
         </div>
 
-        <!-- GRID SYSTEM FOR CARDS -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto w-full">
-            
-            <!-- CARD 1: ระบบงานสารบัญเอกสาร -->
-            <div class="bg-white rounded-2xl shadow-md hover:shadow-2xl border border-gray-100 p-8 text-center transition-all duration-300 transform hover:-translate-y-2 flex flex-col justify-between">
-                <div>
-                    <div class="w-20 h-20 mx-auto mb-6 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center text-4xl shadow-sm">
-                        <i class="fa-solid fa-folder-open"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3">ระบบงานสารบัญเอกสาร</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">รับ-ส่งหนังสือราชการ, ออกเลขที่หนังสือภายนอก-ภายใน และจัดเก็บเอกสารสำคัญของโรงเรียน</p>
-                </div>
-                <div class="mt-8">
-                    <a href="https://script.google.com/macros/s/AKfycbwKuEB-2bXKcPfuwtDIvLziWuSHXs9wodq9itPkk3Ogkq4V2XLaLLYnFihJQdBAt60Lxg/exec" class="inline-flex items-center justify-center w-full px-6 py-3 bg-blue-600 text-white font-medium rounded-xl hover:bg-blue-700 transition-colors shadow-sm gap-2">
-                        เข้าสู่ระบบ <i class="fa-solid fa-arrow-right text-xs"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- CARD 2: ระบบออมทรัพย์นักเรียน -->
-            <div class="bg-white rounded-2xl shadow-md hover:shadow-2xl border border-gray-100 p-8 text-center transition-all duration-300 transform hover:-translate-y-2 flex flex-col justify-between">
-                <div>
-                    <div class="w-20 h-20 mx-auto mb-6 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center text-4xl shadow-sm">
-                        <i class="fa-solid fa-piggy-bank"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3">ระบบออมทรัพย์นักเรียน</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">บันทึกยอดเงินออมรายวันของนักเรียน ตรวจสอบยอดเงินคงเหลือ และรายงานสถิติการออม</p>
-                </div>
-                <div class="mt-8">
-                    <a href="https://script.google.com/macros/s/AKfycbyrrhr7yxBAw_RvPGt7zse-jM6CJu7QM9YzRXSkr0O4T4xzchOMIJBYtocVNqZlVB2L/exec" class="inline-flex items-center justify-center w-full px-6 py-3 bg-emerald-600 text-white font-medium rounded-xl hover:bg-emerald-700 transition-colors shadow-sm gap-2">
-                        เข้าสู่ระบบ <i class="fa-solid fa-arrow-right text-xs"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- CARD 3: ระบบเช็คชื่อนักเรียนรายวิชา -->
-            <div class="bg-white rounded-2xl shadow-md hover:shadow-2xl border border-gray-100 p-8 text-center transition-all duration-300 transform hover:-translate-y-2 flex flex-col justify-between">
-                <div>
-                    <div class="w-20 h-20 mx-auto mb-6 bg-amber-50 text-amber-600 rounded-2xl flex items-center justify-center text-4xl shadow-sm">
-                        <i class="fa-solid fa-user-check"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3">ระบบเช็คชื่อนักเรียนรายวิชา</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">บันทึกการเข้าเรียน มาสาย หรือลา ของนักเรียนในแต่ละรายวิชา พร้อมสรุปเปอร์เซ็นต์เวลาเรียน</p>
-                </div>
-                <div class="mt-8">
-                    <a href="#link-to-attendance" class="inline-flex items-center justify-center w-full px-6 py-3 bg-amber-500 text-white font-medium rounded-xl hover:bg-amber-600 transition-colors shadow-sm gap-2">
-                        เข้าสู่ระบบ <i class="fa-solid fa-arrow-right text-xs"></i>
-                    </a>
-                </div>
-            </div>
-
+        <div>
+          <h1 class="text-xl md:text-3xl font-bold leading-snug">
+            โรงเรียนบ้านหัวหนองแวง
+          </h1>
+          <p class="text-sm md:text-base text-green-100">
+            (สามัคคีราษฎร์บำรุง)
+          </p>
+          <p class="text-xs md:text-sm text-green-100 mt-1">
+            ศูนย์รวมระบบเว็บแอปพลิเคชันโรงเรียน
+          </p>
         </div>
-    </main>
+      </div>
 
-    <!-- FOOTER SECTION -->
-    <footer class="bg-slate-800 text-slate-400 text-center py-5 text-sm border-t border-slate-700/50 shadow-inner">
-        <p>© 2026 โรงเรียนบ้านหัวหนองแวง (สามัคคีราษฎร์บำรุง) | งานบริหารเทคโนโลยีสารสนเทศ</p>
-    </footer>
+      <div class="bg-white/15 backdrop-blur px-5 py-2.5 rounded-full text-sm flex items-center gap-2 border border-white/20">
+        <span class="w-2.5 h-2.5 bg-yellow-300 rounded-full animate-pulse"></span>
+        <span>School Web App Portal</span>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="flex-grow">
+    <section class="max-w-6xl mx-auto px-5 py-12">
+
+      <!-- TITLE -->
+      <div class="text-center mb-10">
+        <span class="inline-flex items-center gap-2 bg-green-100 text-green-700 px-4 py-1.5 rounded-full text-sm font-semibold mb-4">
+          <i class="fa-solid fa-layer-group"></i>
+          ระบบงานโรงเรียน
+        </span>
+
+        <h2 class="text-2xl md:text-4xl font-bold text-slate-800">
+          กรุณาเลือกระบบที่ต้องการใช้งาน
+        </h2>
+
+        <p class="text-slate-500 text-sm md:text-base mt-3">
+          คลิกปุ่มเข้าสู่ระบบ เพื่อเปิดเว็บแอปพลิเคชันของแต่ละงาน
+        </p>
+      </div>
+
+      <!-- CARDS -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-7">
+
+        <!-- CARD 1 -->
+        <div class="portal-card">
+          <div>
+            <div class="portal-icon bg-blue-50 text-blue-600">
+              <i class="fa-solid fa-folder-open"></i>
+            </div>
+
+            <h3 class="portal-title">
+              ระบบงานสารบัญเอกสาร
+            </h3>
+
+            <p class="portal-description">
+              รับ-ส่งหนังสือราชการ ออกเลขที่หนังสือภายนอก-ภายใน และจัดเก็บเอกสารสำคัญของโรงเรียน
+            </p>
+          </div>
+
+          <a href="https://script.google.com/macros/s/AKfycbwKuEB-2bXKcPfuwtDIvLziWuSHXs9wodq9itPkk3Ogkq4V2XLaLLYnFihJQdBAt60Lxg/exec"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="portal-button bg-blue-600 hover:bg-blue-700">
+            เข้าสู่ระบบ
+            <i class="fa-solid fa-arrow-right text-xs"></i>
+          </a>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="portal-card">
+          <div>
+            <div class="portal-icon bg-emerald-50 text-emerald-600">
+              <i class="fa-solid fa-piggy-bank"></i>
+            </div>
+
+            <h3 class="portal-title">
+              ระบบออมทรัพย์นักเรียน
+            </h3>
+
+            <p class="portal-description">
+              บันทึกยอดเงินออมรายวันของนักเรียน ตรวจสอบยอดเงินคงเหลือ และรายงานสถิติการออม
+            </p>
+          </div>
+
+          <a href="https://script.google.com/macros/s/AKfycbyrrhr7yxBAw_RvPGt7zse-jM6CJu7QM9YzRXSkr0O4T4xzchOMIJBYtocVNqZlVB2L/exec"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="portal-button bg-emerald-600 hover:bg-emerald-700">
+            เข้าสู่ระบบ
+            <i class="fa-solid fa-arrow-right text-xs"></i>
+          </a>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="portal-card">
+          <div>
+            <div class="portal-icon bg-amber-50 text-amber-600">
+              <i class="fa-solid fa-user-check"></i>
+            </div>
+
+            <h3 class="portal-title">
+              ระบบเช็คชื่อนักเรียนรายวิชา
+            </h3>
+
+            <p class="portal-description">
+              บันทึกการเข้าเรียน มาสาย หรือลา ของนักเรียนในแต่ละรายวิชา พร้อมสรุปเปอร์เซ็นต์เวลาเรียน
+            </p>
+          </div>
+
+          <a href="#link-to-attendance"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="portal-button bg-amber-500 hover:bg-amber-600">
+            เข้าสู่ระบบ
+            <i class="fa-solid fa-arrow-right text-xs"></i>
+          </a>
+        </div>
+
+      </div>
+
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-900 text-slate-300 text-center py-5 text-sm">
+    <p>
+      © 2026 โรงเรียนบ้านหัวหนองแวง (สามัคคีราษฎร์บำรุง)
+    </p>
+    <p class="text-xs text-slate-500 mt-1">
+      งานบริหารเทคโนโลยีสารสนเทศ | By ครูเกียรติพงษ์
+    </p>
+  </footer>
 
 </body>
 </html>
