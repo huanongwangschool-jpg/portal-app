@@ -16,10 +16,12 @@
 
   <style>
     :root {
+      --green-950: #052e16;
       --green-900: #14532d;
       --green-800: #166534;
       --green-700: #15803d;
       --green-100: #dcfce7;
+      --yellow-500: #eab308;
       --yellow-600: #ca8a04;
       --blue-900: #16324f;
       --blue-800: #1f4968;
@@ -66,41 +68,58 @@
     .topbar {
       width: 100%;
       background:
-        linear-gradient(135deg, var(--green-900) 0%, var(--green-800) 42%, var(--green-700) 72%, var(--yellow-600) 100%);
+        radial-gradient(circle at top left, rgba(255,255,255,0.18), transparent 28%),
+        linear-gradient(135deg, var(--green-950) 0%, var(--green-900) 34%, var(--green-700) 72%, var(--yellow-600) 100%);
       color: var(--white);
-      border-bottom: 1px solid rgba(255,255,255,0.12);
-      box-shadow: 0 10px 30px rgba(21, 128, 61, 0.18);
+      box-shadow: 0 12px 35px rgba(20, 83, 45, 0.24);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .topbar::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 1px;
+      background: rgba(255,255,255,0.22);
     }
 
     .topbar-inner {
       width: min(100%, 1280px);
       margin: 0 auto;
-      padding: clamp(16px, 2vw, 24px) clamp(20px, 5vw, 48px);
+      padding: clamp(18px, 2.4vw, 30px) clamp(20px, 5vw, 48px);
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       gap: 18px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 16px;
+      justify-content: center;
+      gap: clamp(14px, 2vw, 22px);
       min-width: 0;
     }
 
     .brand-logo {
-      width: clamp(58px, 6vw, 78px);
-      height: clamp(58px, 6vw, 78px);
-      border-radius: 22px;
+      width: clamp(66px, 6vw, 88px);
+      height: clamp(66px, 6vw, 88px);
+      border-radius: 24px;
       background: rgba(255,255,255,0.96);
-      padding: 6px;
+      padding: 7px;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      box-shadow: 0 10px 24px rgba(0,0,0,0.10);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.16);
       overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.55);
     }
 
     .brand-logo img {
@@ -110,74 +129,33 @@
       display: block;
     }
 
+    .brand-text {
+      text-align: left;
+      min-width: 0;
+    }
+
     .brand-title {
       margin: 0;
-      font-size: clamp(22px, 2.8vw, 36px);
-      line-height: 1.12;
+      font-size: clamp(26px, 3vw, 42px);
+      line-height: 1.1;
       font-weight: 700;
       color: var(--white);
-      letter-spacing: -0.2px;
-      text-shadow: 0 1px 1px rgba(0,0,0,0.15);
+      letter-spacing: -0.3px;
+      text-shadow: 0 2px 3px rgba(0,0,0,0.16);
     }
 
     .brand-subtitle {
-      margin: 5px 0 0;
-      font-size: clamp(13px, 1.4vw, 18px);
+      margin: 6px 0 0;
+      font-size: clamp(14px, 1.5vw, 19px);
       font-weight: 500;
-      color: rgba(255,255,255,0.92);
+      color: rgba(255,255,255,0.94);
     }
 
     .brand-note {
-      margin: 4px 0 0;
+      margin: 5px 0 0;
       font-size: clamp(12px, 1.2vw, 15px);
       font-weight: 400;
-      color: rgba(255,255,255,0.86);
-    }
-
-    .top-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-shrink: 0;
-    }
-
-    .quick-access {
-      height: 44px;
-      padding: 0 18px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.18);
-      color: var(--white);
-      border: 1px solid rgba(255,255,255,0.18);
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 14px;
-      font-weight: 600;
-      backdrop-filter: blur(10px);
-      white-space: nowrap;
-    }
-
-    .icon-button,
-    .avatar {
-      width: 44px;
-      height: 44px;
-      border-radius: 999px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid rgba(255,255,255,0.20);
-      background: rgba(255,255,255,0.16);
-      color: var(--white);
-      backdrop-filter: blur(10px);
-    }
-
-    .icon-button {
-      cursor: pointer;
-      font-size: 17px;
-    }
-
-    .avatar {
-      font-size: 18px;
+      color: rgba(255,255,255,0.84);
     }
 
     /* MAIN */
@@ -270,7 +248,6 @@
       opacity: 1;
     }
 
-    /* ICON IMAGE */
     .app-image {
       width: min(100%, 310px);
       height: clamp(180px, 22vw, 230px);
@@ -394,25 +371,21 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .topbar-inner {
+      .brand {
         flex-direction: column;
         text-align: center;
       }
 
-      .brand {
-        justify-content: center;
-      }
-
-      .top-actions {
-        display: none;
+      .brand-text {
+        text-align: center;
       }
     }
 
     /* MOBILE */
     @media (max-width: 640px) {
-      .brand {
-        flex-direction: column;
-        text-align: center;
+      .topbar-inner {
+        padding-top: 22px;
+        padding-bottom: 22px;
       }
 
       .brand-logo {
@@ -460,21 +433,6 @@
             <h1 class="brand-title">โรงเรียนบ้านหัวหนองแวง</h1>
             <p class="brand-subtitle">(สามัคคีราษฎร์บำรุง)</p>
             <p class="brand-note">ศูนย์รวมระบบเว็บแอปพลิเคชันโรงเรียน</p>
-          </div>
-        </div>
-
-        <div class="top-actions">
-          <div class="quick-access">
-            <i class="fa-regular fa-compass"></i>
-            <span>Quick access</span>
-          </div>
-
-          <button class="icon-button" aria-label="แจ้งเตือน">
-            <i class="fa-regular fa-bell"></i>
-          </button>
-
-          <div class="avatar">
-            <i class="fa-solid fa-user"></i>
           </div>
         </div>
 
