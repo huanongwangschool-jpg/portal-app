@@ -3,536 +3,229 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ระบบงานโรงเรียนบ้านหัวหนองแวง</title>
 
-  <title>ศูนย์รวมเว็บแอปโรงเรียนบ้านหัวหนองแวง</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --green-950: #052e16;
-      --green-900: #14532d;
-      --green-800: #166534;
-      --green-700: #15803d;
-      --green-100: #dcfce7;
-      --yellow-600: #ca8a04;
-      --blue-900: #16324f;
-      --blue-800: #1f4968;
-      --slate-900: #0f172a;
-      --slate-700: #334155;
-      --slate-600: #475569;
-      --slate-500: #64748b;
-      --white: #ffffff;
-
-      --shadow-soft: 0 18px 50px rgba(15, 23, 42, 0.10);
-      --shadow-hover: 0 24px 60px rgba(15, 23, 42, 0.16);
-    }
-
     * {
-      box-sizing: border-box;
-    }
-
-    html,
-    body {
-      margin: 0;
-      padding: 0;
-      min-height: 100%;
-      font-family: 'IBM Plex Sans Thai', sans-serif;
-      color: var(--slate-900);
-      background:
-        radial-gradient(circle at top left, rgba(220, 252, 231, 0.9), transparent 32%),
-        radial-gradient(circle at top right, rgba(219, 234, 254, 0.9), transparent 34%),
-        linear-gradient(180deg, #f8fafc 0%, #ecfdf5 100%);
+      font-family: 'Anuphan', sans-serif;
     }
 
     body {
-      min-height: 100vh;
-    }
-
-    .page {
-      width: 100%;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
       background:
-        linear-gradient(180deg, rgba(255,255,255,0.9), rgba(240,253,244,0.96));
+        radial-gradient(circle at top left, rgba(22, 163, 74, 0.16), transparent 34%),
+        radial-gradient(circle at top right, rgba(250, 204, 21, 0.22), transparent 34%),
+        linear-gradient(180deg, #f7fff9 0%, #ffffff 45%, #f8fff9 100%);
     }
 
-    /* HEADER */
-    .topbar {
-      width: 100%;
-      background:
-        radial-gradient(circle at top left, rgba(255,255,255,0.14), transparent 22%),
-        linear-gradient(135deg, var(--green-950) 0%, var(--green-900) 38%, var(--green-700) 72%, var(--yellow-600) 100%);
-      color: var(--white);
-      box-shadow: 0 12px 35px rgba(20, 83, 45, 0.22);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .topbar-inner {
-      width: min(100%, 1280px);
-      margin: 0 auto;
-      padding: clamp(18px, 2.3vw, 28px) clamp(20px, 5vw, 48px);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .school-header-card {
-      width: min(100%, 720px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: clamp(16px, 2vw, 24px);
-      padding: clamp(14px, 2vw, 20px) clamp(18px, 3vw, 30px);
-      border-radius: 28px;
-      background: rgba(255, 255, 255, 0.10);
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.12),
-        0 14px 35px rgba(0,0,0,0.08);
-      backdrop-filter: blur(10px);
-    }
-
-    .brand-logo {
-      width: clamp(72px, 7vw, 92px);
-      height: clamp(72px, 7vw, 92px);
-      border-radius: 24px;
-      background: rgba(255,255,255,0.96);
-      padding: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      box-shadow: 0 12px 26px rgba(0,0,0,0.16);
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.55);
-    }
-
-    .brand-logo img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
-    }
-
-    .brand-text {
-      text-align: left;
-      min-width: 0;
-    }
-
-    .brand-title {
-      margin: 0;
-      font-size: clamp(28px, 3vw, 44px);
-      line-height: 1.08;
-      font-weight: 700;
-      color: var(--white);
-      letter-spacing: -0.3px;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.16);
-    }
-
-    .brand-subtitle {
-      margin: 8px 0 0;
-      font-size: clamp(15px, 1.5vw, 20px);
-      font-weight: 500;
-      color: rgba(255,255,255,0.94);
-    }
-
-    .brand-note {
-      margin: 6px 0 0;
-      font-size: clamp(12px, 1.15vw, 15px);
-      font-weight: 400;
-      color: rgba(255,255,255,0.82);
-    }
-
-    /* MAIN */
-    .main {
-      flex: 1;
-      width: 100%;
-      padding: clamp(34px, 5vw, 58px) clamp(20px, 5vw, 48px) clamp(36px, 5vw, 52px);
-    }
-
-    .main-inner {
-      width: min(100%, 1280px);
-      margin: 0 auto;
-    }
-
-    .hero {
-      text-align: center;
-      margin-bottom: clamp(24px, 3vw, 36px);
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 16px;
-      border-radius: 999px;
-      background: var(--green-100);
-      color: var(--green-700);
-      font-size: 14px;
-      font-weight: 600;
-      margin-bottom: 16px;
-    }
-
-    .hero h2 {
-      margin: 0;
-      font-size: clamp(30px, 4vw, 52px);
-      line-height: 1.18;
-      font-weight: 700;
-      color: var(--slate-900);
-      letter-spacing: -0.4px;
-    }
-
-    .hero p {
-      margin: 10px 0 0;
-      font-size: clamp(15px, 1.5vw, 18px);
-      color: var(--slate-500);
-      font-weight: 400;
-    }
-
-    /* GRID */
-    .app-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: clamp(20px, 2.4vw, 32px);
-      align-items: stretch;
+    .soft-card {
+      box-shadow: 0 18px 45px rgba(15, 61, 36, 0.08);
     }
 
     .app-card {
-      background: rgba(255,255,255,0.98);
-      border: 1px solid rgba(187, 247, 208, 0.95);
-      border-radius: 28px;
-      padding: clamp(22px, 2.4vw, 30px);
-      text-align: center;
-      box-shadow: var(--shadow-soft);
-      min-height: 390px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-    }
-
-    .app-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top, rgba(220,252,231,0.45), transparent 42%);
-      opacity: 0;
-      transition: opacity 0.25s ease;
-      pointer-events: none;
+      transition: all 0.25s ease;
     }
 
     .app-card:hover {
-      transform: translateY(-8px);
-      box-shadow: var(--shadow-hover);
-      border-color: rgba(34, 197, 94, 0.45);
+      transform: translateY(-6px);
+      box-shadow: 0 24px 55px rgba(15, 61, 36, 0.13);
     }
 
-    .app-card:hover::before {
-      opacity: 1;
+    .footer-leaf::before,
+    .footer-leaf::after {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.06);
     }
 
-    .app-image {
-      width: min(100%, 310px);
-      height: clamp(180px, 22vw, 230px);
-      margin: 0 auto 4px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      z-index: 1;
-      overflow: hidden;
+    .footer-leaf::before {
+      left: -70px;
+      bottom: -90px;
     }
 
-    .app-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
-      transform: scale(1.6);
-      transform-origin: center;
-    }
-
-    .app-card h3 {
-      margin: 0;
-      min-height: 54px;
-      font-size: clamp(20px, 1.8vw, 25px);
-      line-height: 1.28;
-      font-weight: 600;
-      color: var(--slate-900);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      z-index: 1;
-    }
-
-    .app-card p {
-      margin: 10px 0 18px;
-      min-height: 48px;
-      font-size: clamp(14px, 1.2vw, 15px);
-      line-height: 1.65;
-      color: var(--slate-600);
-      position: relative;
-      z-index: 1;
-    }
-
-    .app-button {
-      margin-top: auto;
-      min-width: 138px;
-      height: 48px;
-      padding: 0 22px;
-      border-radius: 14px;
-      background: var(--blue-800);
-      color: var(--white);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      font-size: 15px;
-      font-weight: 600;
-      transition: all 0.2s ease;
-      position: relative;
-      z-index: 1;
-      box-shadow: 0 8px 18px rgba(31, 73, 104, 0.18);
-    }
-
-    .app-button:hover {
-      transform: translateY(-1px);
-      background: var(--blue-900);
-    }
-
-    .button-green {
-      background: #059669;
-      box-shadow: 0 8px 18px rgba(5, 150, 105, 0.18);
-    }
-
-    .button-green:hover {
-      background: #047857;
-    }
-
-    .button-yellow {
-      background: #d97706;
-      box-shadow: 0 8px 18px rgba(217, 119, 6, 0.18);
-    }
-
-    .button-yellow:hover {
-      background: #b45309;
-    }
-
-    /* FOOTER */
-    .footer-wrap {
-      width: 100%;
-      background: linear-gradient(135deg, var(--slate-900), #1e3a5f);
-      margin-top: auto;
-      box-shadow: 0 -10px 30px rgba(15, 23, 42, 0.10);
-    }
-
-    .footer {
-      width: min(100%, 1280px);
-      margin: 0 auto;
-      padding: 18px clamp(20px, 5vw, 48px) 22px;
-      text-align: center;
-      color: rgba(255,255,255,0.95);
-      font-size: clamp(13px, 1.2vw, 15px);
-      line-height: 1.8;
-    }
-
-    .footer p {
-      margin: 0;
-    }
-
-    .footer .credit {
-      color: rgba(255,255,255,0.78);
-      font-size: clamp(12px, 1.1vw, 14px);
-      margin-top: 3px;
-    }
-
-    /* TABLET */
-    @media (max-width: 1000px) {
-      .app-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .school-header-card {
-        width: min(100%, 760px);
-      }
-    }
-
-    /* MOBILE */
-    @media (max-width: 640px) {
-      .topbar-inner {
-        padding-top: 20px;
-        padding-bottom: 20px;
-      }
-
-      .school-header-card {
-        flex-direction: column;
-        text-align: center;
-        border-radius: 26px;
-      }
-
-      .brand-text {
-        text-align: center;
-      }
-
-      .brand-logo {
-        width: 78px;
-        height: 78px;
-        border-radius: 22px;
-      }
-
-      .hero-badge {
-        font-size: 13px;
-      }
-
-      .app-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .app-card {
-        min-height: auto;
-      }
-
-      .app-image {
-        width: 260px;
-        height: 180px;
-      }
-
-      .app-image img {
-        transform: scale(1.45);
-      }
+    .footer-leaf::after {
+      right: -70px;
+      top: -90px;
     }
   </style>
 </head>
 
-<body>
+<body class="min-h-screen text-slate-900">
 
-  <div class="page">
+  <!-- Header -->
+  <header class="w-full px-4 pt-5 md:px-10 md:pt-7">
+    <div class="mx-auto flex max-w-7xl items-center justify-between rounded-[28px] border border-green-100 bg-white/90 px-5 py-4 shadow-xl shadow-green-900/10 backdrop-blur md:px-8 md:py-5">
 
-    <!-- HEADER -->
-    <header class="topbar">
-      <div class="topbar-inner">
-
-        <div class="school-header-card">
-          <div class="brand-logo">
-            <img src="images/logo-school.png" alt="โลโก้โรงเรียนบ้านหัวหนองแวง">
-          </div>
-
-          <div class="brand-text">
-            <h1 class="brand-title">โรงเรียนบ้านหัวหนองแวง</h1>
-            <p class="brand-subtitle">(สามัคคีราษฎร์บำรุง)</p>
-            <p class="brand-note">ศูนย์รวมระบบเว็บแอปพลิเคชันโรงเรียน</p>
-          </div>
+      <!-- School Brand -->
+      <div class="flex items-center gap-4 md:gap-5">
+        <div class="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-white shadow-md ring-1 ring-green-100 md:h-20 md:w-20">
+          <!-- เปลี่ยน logo.png เป็นชื่อไฟล์โลโก้จริงของโรงเรียน -->
+          <img
+            src="logo.png"
+            alt="ตราโรงเรียน"
+            class="h-12 w-12 object-contain md:h-16 md:w-16"
+          />
         </div>
 
+        <div>
+          <h1 class="text-xl font-extrabold leading-tight tracking-tight text-green-950 md:text-4xl">
+            โรงเรียนบ้านหัวหนองแวง
+          </h1>
+          <p class="mt-1 text-sm font-semibold text-green-700 md:text-lg">
+            (สามัคคีราษฎร์บำรุง)
+          </p>
+        </div>
       </div>
-    </header>
 
-    <!-- MAIN -->
-    <main class="main">
-      <div class="main-inner">
-
-        <section class="hero">
-          <div class="hero-badge">
-            <i class="fa-solid fa-layer-group"></i>
-            ระบบงานโรงเรียน
-          </div>
-
-          <h2>ศูนย์รวมระบบแอปพลิเคชันโรงเรียน</h2>
-          <p>School Web Application Portal</p>
-        </section>
-
-        <section class="app-grid">
-
-          <!-- ระบบงานสารบรรณ -->
-          <article class="app-card">
-            <div class="app-image">
-              <img src="images/icon-saraban.png" alt="ระบบงานสารบรรณเอกสาร">
-            </div>
-
-            <h3>ระบบงานสารบรรณเอกสาร</h3>
-
-            <p>
-              รับ-ส่งหนังสือ ออกเลข และตรวจสอบเอกสารราชการของโรงเรียน
-            </p>
-
-            <a href="https://script.google.com/macros/s/AKfycbwKuEB-2bXKcPfuwtDIvLziWuSHXs9wodq9itPkk3Ogkq4V2XLaLLYnFihJQdBAt60Lxg/exec"
-               target="_blank"
-               rel="noopener noreferrer"
-               class="app-button">
-              เปิดระบบ
-              <i class="fa-solid fa-arrow-right"></i>
-            </a>
-          </article>
-
-          <!-- ระบบออมทรัพย์นักเรียน -->
-          <article class="app-card">
-            <div class="app-image">
-              <img src="images/icon-saving.png" alt="ระบบออมทรัพย์นักเรียน">
-            </div>
-
-            <h3>ระบบออมทรัพย์นักเรียน</h3>
-
-            <p>
-              บันทึกรายรับ รายจ่าย ตรวจสอบยอดเงิน และรายงานสถิติการออม
-            </p>
-
-            <a href="https://script.google.com/macros/s/AKfycbyrrhr7yxBAw_RvPGt7zse-jM6CJu7QM9YzRXSkr0O4T4xzchOMIJBYtocVNqZlVB2L/exec"
-               target="_blank"
-               rel="noopener noreferrer"
-               class="app-button button-green">
-              เปิดระบบ
-              <i class="fa-solid fa-arrow-right"></i>
-            </a>
-          </article>
-
-          <!-- ระบบเช็คชื่อนักเรียน -->
-          <article class="app-card">
-            <div class="app-image">
-              <img src="images/icon-attendance.png" alt="ระบบเช็คชื่อนักเรียนรายวิชา">
-            </div>
-
-            <h3>ระบบเช็คชื่อนักเรียนรายวิชา</h3>
-
-            <p>
-              เช็คชื่อรายคาบ ติดตาม และสรุปสถิติการเข้าเรียนของนักเรียน
-            </p>
-
-            <a href="https://school-subject-attendance-app.vercel.app/"
-               target="_blank"
-               rel="noopener noreferrer"
-               class="app-button button-yellow">
-              เปิดระบบ
-              <i class="fa-solid fa-arrow-right"></i>
-            </a>
-          </article>
-
-        </section>
-
+      <!-- Welcome -->
+      <div class="hidden items-center gap-3 rounded-full bg-green-50 px-5 py-3 text-green-700 shadow-inner ring-1 ring-green-100 md:flex">
+        <span class="flex h-8 w-8 items-center justify-center rounded-full bg-green-100 text-lg">
+          ☺
+        </span>
+        <span class="text-lg font-bold">ยินดีต้อนรับ</span>
       </div>
-    </main>
 
-    <!-- FOOTER -->
-    <div class="footer-wrap">
-      <footer class="footer">
-        <p>ลิขสิทธิ์ © 2026 โรงเรียนบ้านหัวหนองแวง (สามัคคีราษฎร์บำรุง)</p>
-        <p class="credit">/by คุณครูเกียรติพงษ์ พิมพ์สิงห์</p>
-      </footer>
     </div>
+  </header>
 
-  </div>
+  <!-- Main -->
+  <main class="mx-auto max-w-7xl px-4 pb-10 pt-10 md:px-10 md:pt-14">
+
+    <!-- Hero -->
+    <section class="relative overflow-hidden rounded-[32px] px-4 py-8 text-center md:px-10 md:py-12">
+
+      <!-- Background decoration -->
+      <div class="pointer-events-none absolute left-0 top-0 h-40 w-40 rounded-full bg-green-100/60 blur-3xl"></div>
+      <div class="pointer-events-none absolute right-0 top-0 h-48 w-48 rounded-full bg-yellow-100/80 blur-3xl"></div>
+
+      <div class="relative z-10">
+        <div class="mx-auto mb-5 inline-flex items-center gap-2 rounded-full bg-green-50 px-5 py-2 text-sm font-bold text-green-700 ring-1 ring-green-100">
+          <span>▰</span>
+          <span>ระบบงานโรงเรียน</span>
+        </div>
+
+        <h2 class="text-3xl font-extrabold tracking-tight text-slate-950 md:text-5xl">
+          School Web Application Portal
+        </h2>
+
+        <p class="mx-auto mt-4 max-w-2xl text-base font-medium leading-relaxed text-slate-500 md:text-lg">
+          รวมระบบงานสำคัญ เพื่อการบริหารจัดการโรงเรียนอย่างมีประสิทธิภาพ
+        </p>
+
+        <div class="mx-auto mt-6 flex max-w-xs items-center justify-center gap-3 text-green-600">
+          <span class="h-px flex-1 bg-green-200"></span>
+          <span class="text-lg">◆</span>
+          <span class="h-px flex-1 bg-green-200"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- App Cards -->
+    <section class="mt-8 grid gap-7 md:grid-cols-3 md:gap-8">
+
+      <!-- Card 1 -->
+      <article class="app-card soft-card rounded-[28px] border border-green-100 bg-white px-6 py-8 text-center">
+        <div class="mx-auto flex h-32 w-32 items-center justify-center rounded-[28px] bg-green-50">
+          <div class="text-6xl">📁</div>
+        </div>
+
+        <h3 class="mt-7 text-xl font-extrabold text-slate-950 md:text-2xl">
+          ระบบงานสารบรรณเอกสาร
+        </h3>
+
+        <div class="mx-auto my-4 h-1 w-12 rounded-full bg-green-300"></div>
+
+        <p class="mx-auto min-h-[64px] max-w-xs text-sm leading-7 text-slate-500 md:text-base">
+          รับ-ส่งหนังสือ ออกเลข และตรวจสอบเอกสารราชการของโรงเรียน
+        </p>
+
+        <!-- เปลี่ยน # เป็นลิงก์ระบบงานสารบรรณ -->
+        <a
+          href="#"
+          class="mt-7 inline-flex items-center justify-center gap-3 rounded-full bg-green-900 px-8 py-3 font-bold text-white shadow-lg shadow-green-900/20 transition hover:bg-green-800"
+        >
+          เข้าใช้งาน
+          <span>›</span>
+        </a>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="app-card soft-card rounded-[28px] border border-green-100 bg-white px-6 py-8 text-center">
+        <div class="mx-auto flex h-32 w-32 items-center justify-center rounded-[28px] bg-green-50">
+          <div class="text-6xl">🐷</div>
+        </div>
+
+        <h3 class="mt-7 text-xl font-extrabold text-slate-950 md:text-2xl">
+          ระบบออมทรัพย์นักเรียน
+        </h3>
+
+        <div class="mx-auto my-4 h-1 w-12 rounded-full bg-green-300"></div>
+
+        <p class="mx-auto min-h-[64px] max-w-xs text-sm leading-7 text-slate-500 md:text-base">
+          บันทึกรายรับ รายจ่าย ตรวจสอบยอดเงิน และรายงานสถิติการออม
+        </p>
+
+        <!-- เปลี่ยน # เป็นลิงก์ระบบออมทรัพย์ -->
+        <a
+          href="#"
+          class="mt-7 inline-flex items-center justify-center gap-3 rounded-full bg-green-600 px-8 py-3 font-bold text-white shadow-lg shadow-green-700/20 transition hover:bg-green-700"
+        >
+          เข้าใช้งาน
+          <span>›</span>
+        </a>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="app-card soft-card rounded-[28px] border border-green-100 bg-white px-6 py-8 text-center">
+        <div class="mx-auto flex h-32 w-32 items-center justify-center rounded-[28px] bg-green-50">
+          <div class="text-6xl">✅</div>
+        </div>
+
+        <h3 class="mt-7 text-xl font-extrabold text-slate-950 md:text-2xl">
+          ระบบเช็คชื่อนักเรียนรายวิชา
+        </h3>
+
+        <div class="mx-auto my-4 h-1 w-12 rounded-full bg-green-300"></div>
+
+        <p class="mx-auto min-h-[64px] max-w-xs text-sm leading-7 text-slate-500 md:text-base">
+          เช็คชื่อรายคาบ ติดตาม และสรุปสถิติการเข้าเรียนของนักเรียน
+        </p>
+
+        <a
+          href="https://school-subject-attendance-app.vercel.app/login"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-7 inline-flex items-center justify-center gap-3 rounded-full bg-yellow-500 px-8 py-3 font-bold text-white shadow-lg shadow-yellow-600/20 transition hover:bg-yellow-600"
+        >
+          เข้าใช้งาน
+          <span>›</span>
+        </a>
+      </article>
+
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer-leaf relative mt-10 overflow-hidden border-t-4 border-yellow-400 bg-gradient-to-r from-green-950 via-green-900 to-green-700 px-6 py-8 text-white">
+    <div class="relative z-10 mx-auto max-w-7xl text-center">
+      <p class="text-base font-semibold md:text-lg">
+        ลิขสิทธิ์ © 2026 โรงเรียนบ้านหัวหนองแวง(สามัคคีราษฎร์บำรุง)
+      </p>
+      <p class="mt-2 text-base font-medium md:text-lg">
+        /by คุณครูเกียรติพงษ์ พิมพ์สิงห์
+      </p>
+    </div>
+  </footer>
 
 </body>
 </html>
